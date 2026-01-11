@@ -12,7 +12,7 @@
   --text-primary: #E6E8EB;
   --text-secondary: #A8ADB7;
   --text-muted: #7A7F8A;
-  --accent: #5FA8FF;
+  --accent: #6B9FCF;
   --border: #1B1E24;
   --border-light: #2A2E36;
 
@@ -292,7 +292,7 @@ ul, ol {
 }
 
 .btn-primary:hover {
-  background-color: #7AB8FF;
+  background-color: #7EB0DC;
   color: var(--bg-primary);
 }
 
