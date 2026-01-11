@@ -1,0 +1,16 @@
+{
+  "name": "frederico-carneiro-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Portfolio website for Frederico Carneiro - Art Director & Lead Artist",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  }
+}
