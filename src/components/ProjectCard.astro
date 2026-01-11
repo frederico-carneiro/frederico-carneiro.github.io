@@ -12,15 +12,15 @@ const { title, roles, image, href, featured = false } = Astro.props;
 
 <article class:list={['project-card', { featured }]}>
   <a href={href} class="project-link">
+    <div class="project-info">
+      <h3 class="project-title">{title}</h3>
+      <p class="project-roles">{roles.join(' · ')}</p>
+    </div>
     <div class="project-image">
       <img src={image} alt={`${title} project thumbnail`} loading="lazy" />
       <div class="project-overlay">
         <span class="view-cta">View Case Study</span>
       </div>
-    </div>
-    <div class="project-info">
-      <h3 class="project-title">{title}</h3>
-      <p class="project-roles">{roles.join(' · ')}</p>
     </div>
   </a>
 </article>
@@ -34,6 +34,27 @@ const { title, roles, image, href, featured = false } = Astro.props;
     display: block;
     text-decoration: none;
     color: inherit;
+  }
+
+  .project-info {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    transition: color var(--transition-fast);
+  }
+
+  .project-link:hover .project-title {
+    color: var(--accent);
+  }
+
+  .project-roles {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
   }
 
   .project-image {
@@ -84,27 +105,6 @@ const { title, roles, image, href, featured = false } = Astro.props;
   .project-link:hover .view-cta {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  .project-info {
-    padding-top: var(--spacing-md);
-  }
-
-  .project-title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--spacing-xs);
-    transition: color var(--transition-fast);
-  }
-
-  .project-link:hover .project-title {
-    color: var(--accent);
-  }
-
-  .project-roles {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    line-height: var(--line-height-relaxed);
   }
 
   /* Featured variant - larger */
