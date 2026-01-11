@@ -103,13 +103,20 @@
   // Find all zoomable images
   const zoomableImages = document.querySelectorAll('.zoomable');
 
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
   function openLightbox(src: string, alt: string) {
     if (lightbox && lightboxImage) {
+      const scrollbarWidth = getScrollbarWidth();
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+
       lightboxImage.src = src;
       lightboxImage.alt = alt;
       lightbox.classList.add('active');
       lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -118,6 +125,7 @@
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     }
   }
 
