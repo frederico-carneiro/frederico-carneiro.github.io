@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteConfig from '../content/site-config.json';
+
+const { projects } = siteConfig;
+const project = projects.ruiner2;
+---
+
+<BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
+  <main class="case-study">
+    <!-- Section 1: Overview / Hero -->
+    <section class="section section-hero">
+      <div class="section-bg placeholder-bg">
+        <div class="placeholder-content">
+          <span>RUINER 2</span>
+          <span class="placeholder-note">Hero image coming soon</span>
+        </div>
+      </div>
+      <div class="section-overlay"></div>
+      <div class="section-content">
+        <span class="project-label">{project.studio !== "ADD STUDIO NAME" ? project.studio : "Studio"}</span>
+        <h1>{project.title}</h1>
+        <p class="project-roles">{project.roles.join(' · ')}</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Environment Production -->
+    <section class="section section-work">
+      <div class="container">
+        <div class="work-grid">
+          <div class="work-content">
+            <h2>Environment Production</h2>
+            <p class="section-intro">
+              Contributed to the visual identity of RUINER 2 through environment art production,
+              focusing on atmosphere and player experience.
+            </p>
+            <ul class="work-list">
+              <li>Environment asset creation and implementation</li>
+              <li>Material and texture work</li>
+              <li>Scene composition and lighting support</li>
+              <li>Visual storytelling through environmental details</li>
+            </ul>
+          </div>
+          <div class="work-images">
+            <div class="image-placeholder">
+              <span>Environment screenshots</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Level Art & Collaboration -->
+    <section class="section section-work section--alt">
+      <div class="container">
+        <div class="work-grid reverse">
+          <div class="work-content">
+            <h2>Level Art & Layout</h2>
+            <p class="section-intro">
+              Supported level design with art implementation, ensuring visual coherence
+              across gameplay spaces.
+            </p>
+            <ul class="work-list">
+              <li>Level art implementation and polish</li>
+              <li>Layout support and set dressing</li>
+              <li>Collaboration with design team</li>
+              <li>Performance-conscious asset placement</li>
+            </ul>
+          </div>
+          <div class="work-images">
+            <div class="image-placeholder">
+              <span>Level art screenshots</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Credits -->
+    <section class="section section-credits">
+      <div class="container container--narrow">
+        <h2>Credits</h2>
+        <div class="credits-info">
+          <div class="credit-item">
+            <span class="credit-label">Status</span>
+            <span class="credit-value">{project.status !== "ADD STATUS" ? project.status : "In Development"}</span>
+          </div>
+          <div class="credit-item">
+            <span class="credit-label">Studio</span>
+            <span class="credit-value">{project.studio !== "ADD STUDIO NAME" ? project.studio : "Studio"}</span>
+          </div>
+          <div class="credit-item">
+            <span class="credit-label">Role</span>
+            <span class="credit-value">{project.roles[0]}</span>
+          </div>
+        </div>
+        <a href="/portfolio/" class="btn btn-secondary">
+          <span aria-hidden="true">&larr;</span>
+          Back to Home
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .case-study {
+    padding-top: 64px; /* Header height */
+  }
+
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  /* Hero Section */
+  .section-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .placeholder-bg {
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-muted);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    opacity: 0.3;
+  }
+
+  .placeholder-note {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.3) 0%,
+      rgba(26, 26, 26, 0.6) 100%
+    );
+  }
+
+  .section-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-hero h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-roles {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+  }
+
+  /* Work Sections */
+  .section-work {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section--alt {
+    background-color: var(--bg-secondary);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+  }
+
+  .work-grid.reverse .work-content {
+    order: 2;
+  }
+
+  .work-grid.reverse .work-images {
+    order: 1;
+  }
+
+  .work-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-intro {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .work-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .work-list li {
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .work-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  .work-images {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .image-placeholder {
+    aspect-ratio: 16 / 10;
+    background-color: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+  }
+
+  .image-placeholder span {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Credits Section */
+  .section-credits {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section-credits h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .credits-info {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+  }
+
+  .credit-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .credit-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .credit-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .work-grid.reverse .work-content,
+    .work-grid.reverse .work-images {
+      order: unset;
+    }
+
+    .work-images {
+      order: -1;
+    }
+
+    .section-hero {
+      min-height: 50vh;
+    }
+  }
+</style>
