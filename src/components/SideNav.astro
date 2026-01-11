@@ -1,0 +1,113 @@
+---
+interface Props {
+  sections: { id: string; label: string }[];
+}
+
+const { sections } = Astro.props;
+---
+
+<nav class="side-nav" aria-label="Page sections">
+  <ul class="side-nav-list">
+    {sections.map((section, index) => (
+      <li>
+        <a
+          href={`#${section.id}`}
+          class="side-nav-dot"
+          data-section={section.id}
+          aria-label={section.label}
+          title={section.label}
+        >
+          <span class="dot"></span>
+          <span class="label">{section.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .side-nav {
+    position: fixed;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+  }
+
+  .side-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    list-style: none;
+  }
+
+  .side-nav-dot {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    text-decoration: none;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .side-nav-dot:hover .dot,
+  .side-nav-dot.active .dot {
+    background-color: var(--text-primary);
+    transform: scale(1.3);
+  }
+
+  .label {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .side-nav-dot:hover .label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .side-nav-dot.active .label {
+    color: var(--text-primary);
+  }
+
+  /* Hide on mobile */
+  @media (max-width: 1024px) {
+    .side-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer to highlight active section
+  const dots = document.querySelectorAll('.side-nav-dot');
+  const sections = document.querySelectorAll('.snap-section');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          dots.forEach((dot) => {
+            dot.classList.toggle('active', dot.dataset.section === id);
+          });
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>

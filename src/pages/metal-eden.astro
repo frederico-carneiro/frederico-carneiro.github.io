@@ -1,0 +1,576 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SideNav from '../components/SideNav.astro';
+import ScrollToggle from '../components/ScrollToggle.astro';
+import siteConfig from '../content/site-config.json';
+
+const { projects } = siteConfig;
+const project = projects.metalEden;
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'responsibilities', label: 'Responsibilities' },
+  { id: 'weapons', label: 'Weapons' },
+  { id: 'props', label: 'Props' },
+  { id: 'environments', label: 'Environments' },
+  { id: 'optimization', label: 'Optimization' },
+  { id: 'credits', label: 'Credits' },
+];
+---
+
+<BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
+  <SideNav sections={sections} />
+  <ScrollToggle />
+
+  <main class="snap-container">
+    <!-- Section 1: Overview / Hero -->
+    <section id="overview" class="snap-section section-hero">
+      <div class="section-bg">
+        <img src="/portfolio/images/metal-eden/hero.png" alt="Metal Eden overview" loading="eager" />
+      </div>
+      <div class="section-overlay"></div>
+      <div class="section-content">
+        <span class="project-label">{project.studio}</span>
+        <h1>{project.title}</h1>
+        <p class="project-roles">{project.roles.join(' · ')}</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Responsibilities & Leadership -->
+    <section id="responsibilities" class="snap-section section-split">
+      <div class="split-content">
+        <div class="split-text">
+          <h2>Responsibilities & Leadership</h2>
+          <ul class="responsibility-list">
+            <li>Led environment, prop, and weapon art production</li>
+            <li>Defined visual direction with design and tech teams</li>
+            <li>Oversaw asset quality, consistency, and performance budgets</li>
+            <li>Mentored artists and coordinated cross-discipline workflows</li>
+          </ul>
+        </div>
+        <div class="split-image">
+          <img src="/portfolio/images/metal-eden/env-1.png" alt="Metal Eden environment" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Weapons -->
+    <section id="weapons" class="snap-section section-gallery">
+      <div class="section-content">
+        <h2>Weapons</h2>
+        <p class="section-subtitle">Weapon Lead</p>
+        <div class="gallery-placeholder">
+          <p>Weapon art showcase</p>
+          <span class="placeholder-note">Final in-game weapons · High-poly → Low-poly · UVs / Textures · Trim sheets</span>
+        </div>
+        <div class="section-details">
+          <h3>Production Approach</h3>
+          <ul>
+            <li>Modular reuse strategy for weapon components</li>
+            <li>Optimized for real-time performance constraints</li>
+            <li>Scalable production pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Props & Modular Kits -->
+    <section id="props" class="snap-section section-gallery">
+      <div class="section-content">
+        <h2>Props & Modular Kits</h2>
+        <p class="section-subtitle">Prop Lead · 3D Lead</p>
+        <div class="gallery-placeholder">
+          <p>Modular kit showcase</p>
+          <span class="placeholder-note">Modular breakdowns · Asset kits · Reuse examples</span>
+        </div>
+        <div class="section-details">
+          <h3>Technical Focus</h3>
+          <ul>
+            <li>Modular logic for environment assembly</li>
+            <li>Memory and draw-call optimization</li>
+            <li>Consistent visual language across asset types</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Environments & Level Art -->
+    <section id="environments" class="snap-section section-environments">
+      <div class="env-gallery">
+        <div class="env-image large">
+          <img src="/portfolio/images/metal-eden/env-2.png" alt="Metal Eden environment" loading="lazy" />
+        </div>
+        <div class="env-image">
+          <img src="/portfolio/images/metal-eden/env-3.png" alt="Metal Eden environment" loading="lazy" />
+        </div>
+        <div class="env-image">
+          <img src="/portfolio/images/metal-eden/env-4.png" alt="Metal Eden environment" loading="lazy" />
+        </div>
+      </div>
+      <div class="env-content">
+        <h2>Environments & Level Art</h2>
+        <p class="section-subtitle">Principal Environment Artist · Principal Level Artist</p>
+        <ul>
+          <li>Visual hierarchy and player readability</li>
+          <li>Lighting and composition</li>
+          <li>Set dressing logic and level flow</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 6: Optimization -->
+    <section id="optimization" class="snap-section section-optimization">
+      <div class="section-content">
+        <h2>Optimization</h2>
+        <p class="section-intro">
+          Performance optimization was a key differentiator in this project, balancing visual quality with real-time constraints.
+        </p>
+        <div class="optimization-grid">
+          <div class="optimization-card">
+            <h3>Challenges</h3>
+            <ul>
+              <li>Large open environments</li>
+              <li>Dense asset placement</li>
+              <li>Memory constraints</li>
+            </ul>
+          </div>
+          <div class="optimization-card">
+            <h3>Solutions</h3>
+            <ul>
+              <li>LOD implementation</li>
+              <li>Texture atlasing</li>
+              <li>Draw call batching</li>
+            </ul>
+          </div>
+          <div class="optimization-card">
+            <h3>Results</h3>
+            <ul>
+              <li>Stable frame rate</li>
+              <li>Reduced memory footprint</li>
+              <li>Maintained visual quality</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Results & Credits -->
+    <section id="credits" class="snap-section section-credits">
+      <div class="section-content">
+        <h2>Results & Credits</h2>
+        <div class="credits-info">
+          <div class="credit-item">
+            <span class="credit-label">Status</span>
+            <span class="credit-value">{project.status}</span>
+          </div>
+          <div class="credit-item">
+            <span class="credit-label">Studio</span>
+            <span class="credit-value">{project.studio}</span>
+          </div>
+          <div class="credit-item">
+            <span class="credit-label">Role</span>
+            <span class="credit-value">{project.roles[0]}</span>
+          </div>
+        </div>
+        <div class="credits-reflection">
+          <h3>Reflection</h3>
+          <p>
+            This project challenged me to balance art direction responsibilities with hands-on production work.
+            Leading multiple disciplines while maintaining quality standards was a significant growth opportunity.
+          </p>
+        </div>
+        <a href="/portfolio/" class="btn btn-secondary">
+          <span aria-hidden="true">&larr;</span>
+          Back to Home
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Snap Container */
+  .snap-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-container.snap-disabled {
+    scroll-snap-type: none;
+  }
+
+  @media (max-width: 768px) {
+    .snap-container {
+      scroll-snap-type: none;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+
+  /* Snap Sections */
+  .snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--spacing-lg);
+    padding-top: calc(64px + var(--spacing-lg));
+  }
+
+  @media (max-width: 768px) {
+    .snap-section {
+      min-height: auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+      padding-top: calc(64px + var(--spacing-md));
+    }
+  }
+
+  /* Section Hero */
+  .section-hero {
+    text-align: center;
+  }
+
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .section-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.6) 0%,
+      rgba(26, 26, 26, 0.4) 50%,
+      rgba(26, 26, 26, 0.8) 100%
+    );
+  }
+
+  .section-content {
+    max-width: var(--content-width);
+    width: 100%;
+  }
+
+  .project-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-hero h1 {
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-roles {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    opacity: 0.9;
+  }
+
+  /* Section Split */
+  .section-split {
+    background-color: var(--bg-secondary);
+  }
+
+  .split-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: var(--max-width);
+    width: 100%;
+    align-items: center;
+  }
+
+  .split-text h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .responsibility-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .responsibility-list li {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .responsibility-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  .split-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .split-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .split-content {
+      grid-template-columns: 1fr;
+    }
+
+    .split-image {
+      order: -1;
+    }
+  }
+
+  /* Section Gallery */
+  .section-gallery {
+    background-color: var(--bg-primary);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gallery-placeholder {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gallery-placeholder p {
+    font-size: var(--font-size-xl);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .placeholder-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  .section-details h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-details ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .section-details li {
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .section-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  /* Section Environments */
+  .section-environments {
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .env-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  .env-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .env-image.large {
+    grid-row: span 2;
+  }
+
+  .env-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .env-content {
+    text-align: center;
+    max-width: var(--content-width);
+  }
+
+  .env-content h2 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .env-content ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+  }
+
+  .env-content li {
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .env-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .env-image.large {
+      grid-row: auto;
+    }
+
+    .env-content ul {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+  }
+
+  /* Section Optimization */
+  .section-optimization {
+    background-color: var(--bg-primary);
+  }
+
+  .section-intro {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+  }
+
+  .optimization-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .optimization-card {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+  }
+
+  .optimization-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+  }
+
+  .optimization-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .optimization-card li {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .optimization-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Section Credits */
+  .section-credits {
+    background-color: var(--bg-secondary);
+    text-align: center;
+  }
+
+  .credits-info {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+  }
+
+  .credit-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .credit-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .credit-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+  }
+
+  .credits-reflection {
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+    text-align: left;
+  }
+
+  .credits-reflection h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .credits-reflection p {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .snap-container {
+      scroll-snap-type: none;
+    }
+  }
+</style>
