@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteConfig from '../content/site-config.json';
+
+const { personal, expertise, tools } = siteConfig;
+---
+
+<BaseLayout title="About" description={personal.statement}>
+  <main class="about-page">
+    <section class="section hero-section">
+      <div class="container">
+        <div class="about-header">
+          <div class="profile-image">
+            <div class="profile-placeholder">
+              <span>FC</span>
+            </div>
+          </div>
+          <div class="about-intro">
+            <h1>{personal.name}</h1>
+            <p class="title">{personal.title}</p>
+            <p class="specialization">{personal.specialization}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="about-content">
+          <h2>Background</h2>
+          <p class="statement">{personal.statement}</p>
+
+          <p class="bio">
+            {personal.shortBio !== "ADD YOUR SHORT BIO HERE (2-3 sentences for About section)"
+              ? personal.shortBio
+              : "With over 7 years in game development, I've had the opportunity to work across multiple disciplines—from hands-on asset creation to leading art teams and defining visual direction. My focus has always been on delivering production-ready work that balances quality with performance."}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <h2>Expertise</h2>
+        <ul class="expertise-list">
+          {expertise.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <h2>Tools</h2>
+        <div class="tools-grid">
+          {tools.map(tool => (
+            <span class="tool-tag">{tool}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container container--narrow cta-section">
+        <h2>Let's Work Together</h2>
+        <p>Open to new opportunities and collaborations.</p>
+        <a href="/portfolio/contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-top: 64px;
+  }
+
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .section--alt {
+    background-color: var(--bg-secondary);
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .profile-image {
+    flex-shrink: 0;
+  }
+
+  .profile-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-muted);
+  }
+
+  .about-intro h1 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .specialization {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+  }
+
+  /* Content */
+  .about-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .statement {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .bio {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Expertise */
+  .expertise-list {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .expertise-list li {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .expertise-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  /* Tools */
+  .tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .tool-tag {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-section p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .about-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .profile-placeholder {
+      width: 120px;
+      height: 120px;
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>
