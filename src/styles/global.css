@@ -4,17 +4,17 @@
 
 :root {
   /* Colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #242424;
-  --bg-tertiary: #2a2a2a;
+  --bg-primary: #0E0F11;
+  --bg-secondary: #14161A;
+  --bg-tertiary: #1B1E24;
   --bg-overlay: rgba(0, 0, 0, 0.6);
 
-  --text-primary: #f5f5f5;
-  --text-secondary: #a0a0a0;
-  --text-muted: #666666;
-  --accent: #ffffff;
-  --border: #333333;
-  --border-light: #444444;
+  --text-primary: #E6E8EB;
+  --text-secondary: #A8ADB7;
+  --text-muted: #7A7F8A;
+  --accent: #5FA8FF;
+  --border: #1B1E24;
+  --border-light: #2A2E36;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -287,12 +287,12 @@ ul, ol {
 }
 
 .btn-primary {
-  background-color: var(--text-primary);
+  background-color: var(--accent);
   color: var(--bg-primary);
 }
 
 .btn-primary:hover {
-  background-color: #e0e0e0;
+  background-color: #7AB8FF;
   color: var(--bg-primary);
 }
 
