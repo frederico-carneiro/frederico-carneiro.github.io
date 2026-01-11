@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import siteConfig from '../content/site-config.json';
 
-const { personal, expertise, tools, projects } = siteConfig;
+const { personal, contact, expertise, tools, projects } = siteConfig;
 ---
 
 <BaseLayout title="Home">
@@ -84,6 +84,33 @@ const { personal, expertise, tools, projects } = siteConfig;
           Learn more
           <span aria-hidden="true">&rarr;</span>
         </a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section--alt contact-section">
+      <div class="container container--narrow">
+        <h2 class="section-title text-center">Get in Touch</h2>
+        <p class="contact-text">
+          Open to discussing new opportunities, collaborations, or just talking shop about game art and production.
+        </p>
+        <div class="contact-links">
+          <a href={`mailto:${contact.email}`} class="contact-link">
+            <span class="contact-icon" data-icon="email"></span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">{contact.email}</span>
+          </a>
+          <a href={contact.artstation} target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon" data-icon="artstation"></span>
+            <span class="contact-label">ArtStation</span>
+            <span class="contact-value">View Portfolio</span>
+          </a>
+          <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon" data-icon="linkedin"></span>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Connect</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -269,6 +296,87 @@ const { personal, expertise, tools, projects } = siteConfig;
     line-height: var(--line-height-relaxed);
     max-width: 700px;
     margin: 0 auto var(--spacing-md);
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding-bottom: var(--spacing-2xl);
+  }
+
+  .contact-text {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+  }
+
+  .contact-link:hover {
+    background-color: var(--border);
+  }
+
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--text-secondary);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon[data-icon="email"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+  }
+
+  .contact-icon[data-icon="artstation"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24-2.194l-5.297-9.167a2.423 2.423 0 0 0-2.164-1.333H8.936l12.924 22.39L24 15.529zm-19.09-7.29l7.697 13.33 2.792-4.838-4.905-8.492H4.91z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24-2.194l-5.297-9.167a2.423 2.423 0 0 0-2.164-1.333H8.936l12.924 22.39L24 15.529zm-19.09-7.29l7.697 13.33 2.792-4.838-4.905-8.492H4.91z'/%3E%3C/svg%3E");
+  }
+
+  .contact-icon[data-icon="linkedin"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+  }
+
+  .contact-label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+  }
+
+  .contact-value {
+    margin-left: auto;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   /* Responsive */

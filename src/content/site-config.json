@@ -9,9 +9,9 @@
   },
 
   "contact": {
-    "email": "YOUR_EMAIL@example.com",
-    "artstation": "https://www.artstation.com/YOUR_USERNAME",
-    "linkedin": "https://www.linkedin.com/in/YOUR_USERNAME"
+    "email": "frederico.rcarneiro@gmail.com",
+    "artstation": "https://www.artstation.com/kiko_main",
+    "linkedin": "https://www.linkedin.com/in/frederico-carneiro-05058294/"
   },
 
   "tools": [
@@ -34,16 +34,15 @@
   "projects": {
     "metalEden": {
       "title": "Metal Eden",
-      "studio": "ADD STUDIO NAME",
+      "studio": "REIKON GAMES",
       "platform": "ADD PLATFORM (e.g., PC / Console)",
-      "status": "ADD STATUS (e.g., In Development / Shipped)",
+      "status": "Shipped (e.g., In Development / Shipped)",
       "roles": [
         "Associate Art Director",
-        "Principal Artist",
-        "Prop Lead",
-        "Weapon Lead",
+        "Principal Environment Artist",
+        "Principal Level Artist",
         "3D Lead",
-        "Environment & Level Art"
+        "Weapon Lead"
       ],
       "description": "ADD SHORT PROJECT DESCRIPTION",
       "trailerUrl": "ADD TRAILER URL (YouTube/Vimeo)",
