@@ -47,7 +47,8 @@ const { title, roles, image, href, featured = false } = Astro.props;
     transition: color var(--transition-fast);
   }
 
-  .project-link:hover .project-title {
+  .project-link:hover .project-title,
+  .project-link:focus-visible .project-title {
     color: var(--accent);
   }
 
@@ -86,7 +87,8 @@ const { title, roles, image, href, featured = false } = Astro.props;
     transition: background-color var(--transition-base);
   }
 
-  .project-link:hover .project-overlay {
+  .project-link:hover .project-overlay,
+  .project-link:focus-visible .project-overlay {
     background-color: rgba(26, 26, 26, 0.6);
   }
 
@@ -102,7 +104,8 @@ const { title, roles, image, href, featured = false } = Astro.props;
     transition: all var(--transition-base);
   }
 
-  .project-link:hover .view-cta {
+  .project-link:hover .view-cta,
+  .project-link:focus-visible .view-cta {
     opacity: 1;
     transform: translateY(0);
   }

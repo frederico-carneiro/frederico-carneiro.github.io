@@ -64,8 +64,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#1a1a1a" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     {!hideHeader && <Header />}
-    <slot />
+    <div id="main-content">
+      <slot />
+    </div>
     {!hideFooter && <Footer />}
   </body>
 </html>

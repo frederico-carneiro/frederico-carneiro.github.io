@@ -32,9 +32,11 @@ const socialLinks = [
           class="footer-link"
           target={link.icon !== 'email' ? '_blank' : undefined}
           rel={link.icon !== 'email' ? 'noopener noreferrer' : undefined}
+          aria-label={link.icon !== 'email' ? `${link.label} (opens in new tab)` : undefined}
         >
-          <span class="footer-icon" data-icon={link.icon}></span>
-          {link.label}
+          <span class="footer-icon" data-icon={link.icon} aria-hidden="true"></span>
+          <span>{link.label}</span>
+          {link.icon !== 'email' && <span class="visually-hidden">(opens in new tab)</span>}
         </a>
       ))}
     </div>
