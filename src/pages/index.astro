@@ -12,7 +12,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     <section class="hero">
       <div class="hero-bg">
         <img
-          src="/portfolio/images/metal-eden/hero.png"
+          src="/images/metal-eden/hero.png"
           alt="METAL EDEN environment art"
           loading="eager"
         />
@@ -24,7 +24,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
         <p class="hero-statement">{personal.statement}</p>
         <div class="hero-cta">
           <a href="#work" class="btn btn-primary">View Work</a>
-          <a href="/portfolio/contact" class="btn btn-secondary">Contact</a>
+          <a href="/contact" class="btn btn-secondary">Contact</a>
         </div>
       </div>
       <div class="scroll-indicator" aria-hidden="true">
@@ -40,8 +40,8 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
           <ProjectCard
             title={projects.metalEden.title}
             roles={projects.metalEden.roles}
-            image="/portfolio/images/metal-eden/thumbnail.png"
-            href="/portfolio/metal-eden"
+            image="/images/metal-eden/thumbnail.png"
+            href="/metal-eden"
             featured={true}
           />
 
@@ -49,8 +49,8 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
           <ProjectCard
             title={projects.ruiner2.title}
             roles={projects.ruiner2.roles}
-            image="/portfolio/images/ruiner-2/placeholder.svg"
-            href="/portfolio/ruiner-2"
+            image="/images/ruiner-2/placeholder.svg"
+            href="/ruiner-2"
           />
         </div>
       </div>
@@ -80,7 +80,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
             ? personal.shortBio
             : personal.statement}
         </p>
-        <a href="/portfolio/about" class="btn btn-text">
+        <a href="/about" class="btn btn-text">
           Learn more
           <span aria-hidden="true">&rarr;</span>
         </a>

@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://kiko-art-dev.github.io',
-  base: '/portfolio',
+  site: 'https://frederico-carneiro.github.io',
+  base: '/',
   output: 'static',
   build: {
     assets: 'assets'

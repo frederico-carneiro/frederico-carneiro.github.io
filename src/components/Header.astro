@@ -2,16 +2,16 @@
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/portfolio/', label: 'Home' },
-  { href: '/portfolio/metal-eden', label: 'METAL EDEN' },
-  { href: '/portfolio/ruiner-2', label: 'RUINER 2' },
-  { href: '/portfolio/about', label: 'About' },
-  { href: '/portfolio/contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/metal-eden', label: 'METAL EDEN' },
+  { href: '/ruiner-2', label: 'RUINER 2' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 function isActive(href: string): boolean {
-  if (href === '/portfolio/') {
-    return currentPath === '/portfolio/' || currentPath === '/portfolio';
+  if (href === '/') {
+    return currentPath === '/' || currentPath === '';
   }
   return currentPath.startsWith(href);
 }
@@ -19,7 +19,7 @@ function isActive(href: string): boolean {
 
 <header class="header">
   <nav class="nav container">
-    <a href="/portfolio/" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="logo-text">FC</span>
     </a>
 

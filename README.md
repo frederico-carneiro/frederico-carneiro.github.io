@@ -2,7 +2,7 @@
 
 Art Director & Lead Artist portfolio website built with Astro.
 
-**Live site:** https://kiko-art-dev.github.io/portfolio/
+**Live site:** https://frederico-carneiro.github.io/
 
 ## Development
 
@@ -30,7 +30,7 @@ This site automatically deploys to GitHub Pages when you push to the `main` bran
 2. Navigate to **Settings** > **Pages**
 3. Under "Build and deployment", set **Source** to **GitHub Actions**
 4. Push any change to the `main` branch to trigger the first deployment
-5. Your site will be live at: https://kiko-art-dev.github.io/portfolio/
+5. Your site will be live at: https://frederico-carneiro.github.io/
 
 ### Manual Deployment
 
