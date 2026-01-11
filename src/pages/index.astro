@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import siteConfig from '../content/site-config.json';
 
-const { personal, expertise, tools } = siteConfig;
+const { personal, expertise, tools, projects } = siteConfig;
 ---
 
 <BaseLayout title="Home">
@@ -31,15 +32,33 @@ const { personal, expertise, tools } = siteConfig;
       </div>
     </section>
 
-    <!-- Selected Work Section (placeholder for Step 5) -->
-    <section id="work" class="section">
+    <!-- Selected Work Section -->
+    <section id="work" class="section work-section">
       <div class="container">
         <h2 class="section-title">Selected Work</h2>
-        <p class="text-secondary">Coming in Step 5...</p>
+
+        <div class="projects-grid">
+          <!-- Metal Eden - Featured/Primary -->
+          <ProjectCard
+            title={projects.metalEden.title}
+            roles={projects.metalEden.roles}
+            image="/portfolio/images/metal-eden/thumbnail.png"
+            href="/portfolio/metal-eden"
+            featured={true}
+          />
+
+          <!-- RUINER 2 - Secondary -->
+          <ProjectCard
+            title={projects.ruiner2.title}
+            roles={projects.ruiner2.roles}
+            image="/portfolio/images/ruiner-2/placeholder.svg"
+            href="/portfolio/ruiner-2"
+          />
+        </div>
       </div>
     </section>
 
-    <!-- Expertise Section (placeholder for Step 6) -->
+    <!-- Expertise Section -->
     <section class="section section--alt">
       <div class="container container--narrow">
         <h2 class="section-title">Focus & Expertise</h2>
@@ -51,6 +70,22 @@ const { personal, expertise, tools } = siteConfig;
         <p class="tools-list">
           {tools.join(' · ')}
         </p>
+      </div>
+    </section>
+
+    <!-- Short About Section -->
+    <section class="section">
+      <div class="container container--narrow about-preview">
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+          {personal.shortBio !== "ADD YOUR SHORT BIO HERE (2-3 sentences for About section)"
+            ? personal.shortBio
+            : personal.statement}
+        </p>
+        <a href="/portfolio/about" class="btn btn-text">
+          Learn more
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </section>
   </main>
@@ -66,7 +101,7 @@ const { personal, expertise, tools } = siteConfig;
     align-items: center;
     text-align: center;
     padding: var(--spacing-md);
-    padding-top: calc(64px + var(--spacing-md)); /* Account for fixed header */
+    padding-top: calc(64px + var(--spacing-md));
     position: relative;
     overflow: hidden;
   }
@@ -185,6 +220,17 @@ const { personal, expertise, tools } = siteConfig;
     margin-bottom: var(--spacing-lg);
   }
 
+  /* Work Section */
+  .work-section {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+  }
+
   /* Expertise Section */
   .expertise-list {
     display: grid;
@@ -215,6 +261,18 @@ const { personal, expertise, tools } = siteConfig;
     letter-spacing: 0.02em;
   }
 
+  /* About Preview Section */
+  .about-preview {
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md);
+  }
+
   /* Responsive */
   @media (max-width: 640px) {
     .hero {
@@ -230,6 +288,11 @@ const { personal, expertise, tools } = siteConfig;
 
     .hero-cta .btn {
       width: 100%;
+    }
+
+    .work-section {
+      padding-top: var(--spacing-xl);
+      padding-bottom: var(--spacing-xl);
     }
   }
 

@@ -1,0 +1,166 @@
+---
+interface Props {
+  title: string;
+  roles: string[];
+  image: string;
+  href: string;
+  featured?: boolean;
+}
+
+const { title, roles, image, href, featured = false } = Astro.props;
+---
+
+<article class:list={['project-card', { featured }]}>
+  <a href={href} class="project-link">
+    <div class="project-image">
+      <img src={image} alt={`${title} project thumbnail`} loading="lazy" />
+      <div class="project-overlay">
+        <span class="view-cta">View Case Study</span>
+      </div>
+    </div>
+    <div class="project-info">
+      <h3 class="project-title">{title}</h3>
+      <p class="project-roles">{roles.join(' · ')}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .project-card {
+    position: relative;
+  }
+
+  .project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-image {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-secondary);
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .project-link:hover .project-image img {
+    transform: scale(1.03);
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 26, 26, 0);
+    transition: background-color var(--transition-base);
+  }
+
+  .project-link:hover .project-overlay {
+    background-color: rgba(26, 26, 26, 0.6);
+  }
+
+  .view-cta {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-base);
+  }
+
+  .project-link:hover .view-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-info {
+    padding-top: var(--spacing-md);
+  }
+
+  .project-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    transition: color var(--transition-fast);
+  }
+
+  .project-link:hover .project-title {
+    color: var(--accent);
+  }
+
+  .project-roles {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Featured variant - larger */
+  .featured .project-image {
+    aspect-ratio: 21 / 9;
+  }
+
+  .featured .project-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .featured .project-roles {
+    font-size: var(--font-size-base);
+  }
+
+  /* Focus state for accessibility */
+  .project-link:focus-visible {
+    outline: none;
+  }
+
+  .project-link:focus-visible .project-image {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .project-image img,
+    .view-cta,
+    .project-overlay {
+      transition: none;
+    }
+
+    .project-link:hover .project-image img {
+      transform: none;
+    }
+
+    .view-cta {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .featured .project-image {
+      aspect-ratio: 16 / 9;
+    }
+
+    .featured .project-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .view-cta {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
