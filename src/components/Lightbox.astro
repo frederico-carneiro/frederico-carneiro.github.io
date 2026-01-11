@@ -1,0 +1,148 @@
+---
+// Lightbox component - click images to view full-size
+---
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" aria-label="Close image preview">&times;</button>
+  <img class="lightbox-image" src="" alt="" />
+</div>
+
+<style>
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+    cursor: zoom-out;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    transform: scale(0.95);
+    transition: transform var(--transition-base);
+  }
+
+  .lightbox.active .lightbox-image {
+    transform: scale(1);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  .lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox,
+    .lightbox-image {
+      transition: none;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Make clickable images show pointer cursor */
+  .zoomable {
+    cursor: zoom-in;
+    transition: transform var(--transition-fast);
+  }
+
+  .zoomable:hover {
+    transform: scale(1.02);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .zoomable:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = lightbox?.querySelector('.lightbox-image') as HTMLImageElement;
+  const lightboxClose = lightbox?.querySelector('.lightbox-close');
+
+  // Find all zoomable images
+  const zoomableImages = document.querySelectorAll('.zoomable');
+
+  function openLightbox(src: string, alt: string) {
+    if (lightbox && lightboxImage) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Click on zoomable images
+  zoomableImages.forEach(img => {
+    img.addEventListener('click', () => {
+      const imgEl = img as HTMLImageElement;
+      openLightbox(imgEl.src, imgEl.alt);
+    });
+  });
+
+  // Close on backdrop click
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Close button
+  lightboxClose?.addEventListener('click', closeLightbox);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+</script>

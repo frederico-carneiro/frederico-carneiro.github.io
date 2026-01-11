@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SideNav from '../components/SideNav.astro';
 import ScrollToggle from '../components/ScrollToggle.astro';
+import Lightbox from '../components/Lightbox.astro';
 import siteConfig from '../content/site-config.json';
 
 const { projects } = siteConfig;
@@ -21,6 +22,7 @@ const sections = [
 <BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
   <SideNav sections={sections} />
   <ScrollToggle />
+  <Lightbox />
 
   <main class="snap-container">
     <!-- Section 1: Overview / Hero -->
@@ -49,7 +51,7 @@ const sections = [
           </ul>
         </div>
         <div class="split-image">
-          <img src="/images/metal-eden/env-1.png" alt="METAL EDEN environment" loading="lazy" />
+          <img src="/images/metal-eden/env-1.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
       </div>
     </section>
@@ -98,13 +100,13 @@ const sections = [
     <section id="environments" class="snap-section section-environments">
       <div class="env-gallery">
         <div class="env-image large">
-          <img src="/images/metal-eden/env-2.png" alt="METAL EDEN environment" loading="lazy" />
+          <img src="/images/metal-eden/env-2.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
         <div class="env-image">
-          <img src="/images/metal-eden/env-3.png" alt="METAL EDEN environment" loading="lazy" />
+          <img src="/images/metal-eden/env-3.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
         <div class="env-image">
-          <img src="/images/metal-eden/env-4.png" alt="METAL EDEN environment" loading="lazy" />
+          <img src="/images/metal-eden/env-4.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
       </div>
       <div class="env-content">
