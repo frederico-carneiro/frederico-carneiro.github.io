@@ -7,8 +7,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="hero">
       <div class="hero-content">
         <h1>Frederico Carneiro</h1>
-        <p class="title">Art Director & Lead Artist</p>
-        <p class="statement">
+        <p class="hero-title">Art Director & Lead Artist</p>
+        <p class="hero-statement">
           Art Director and Senior Game Developer with 7+ years of experience.
           Strong background in Environment art, 3D art, Weapon art and real-time visuals,
           with deep hands-on expertise in Unreal Engine 5.
@@ -35,7 +35,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
     padding: var(--spacing-md);
     position: relative;
-    background-color: var(--bg-primary);
   }
 
   .hero-content {
@@ -44,22 +43,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero h1 {
     margin-bottom: var(--spacing-xs);
-    letter-spacing: -0.02em;
   }
 
-  .title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  .hero-title {
+    font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
   }
 
-  .statement {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  .hero-statement {
+    font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto var(--spacing-lg);
-    line-height: 1.7;
+    line-height: var(--line-height-relaxed);
   }
 
   .hero-cta {
@@ -69,37 +67,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 2rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-  }
-
-  .btn-primary {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-  }
-
-  .btn-primary:hover {
-    background-color: #e0e0e0;
-  }
-
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border-color: var(--border);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--text-secondary);
-  }
-
+  /* Scroll Indicator */
   .scroll-indicator {
     position: absolute;
     bottom: var(--spacing-md);
@@ -140,9 +108,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-indicator span::before {
-      animation: none;
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero {
+      padding: var(--spacing-sm);
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
     }
   }
 </style>
