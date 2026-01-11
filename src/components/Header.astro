@@ -1,0 +1,215 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/portfolio/', label: 'Home' },
+  { href: '/portfolio/metal-eden', label: 'Metal Eden' },
+  { href: '/portfolio/ruiner-2', label: 'RUINER 2' },
+  { href: '/portfolio/about', label: 'About' },
+  { href: '/portfolio/contact', label: 'Contact' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/portfolio/') {
+    return currentPath === '/portfolio/' || currentPath === '/portfolio';
+  }
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="header">
+  <nav class="nav container">
+    <a href="/portfolio/" class="nav-logo">
+      <span class="logo-text">FC</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+
+    <ul class="nav-links">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['nav-link', { active: isActive(link.href) }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+  }
+
+  .logo-text {
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    list-style: none;
+  }
+
+  .nav-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    padding: var(--spacing-xs) 0;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-link.active {
+    color: var(--text-primary);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--text-primary);
+  }
+
+  /* Mobile toggle button */
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-primary);
+    position: relative;
+    transition: background-color var(--transition-fast);
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: transform var(--transition-base);
+  }
+
+  .hamburger::before {
+    top: -6px;
+  }
+
+  .hamburger::after {
+    bottom: -6px;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: var(--spacing-lg);
+      gap: var(--spacing-sm);
+      background-color: var(--bg-primary);
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+    }
+
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .nav-link {
+      font-size: var(--font-size-lg);
+      padding: var(--spacing-sm);
+    }
+
+    /* Animate hamburger to X */
+    .nav-toggle[aria-expanded="true"] .hamburger {
+      background-color: transparent;
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::before {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::after {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+  }
+</style>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle?.addEventListener('click', () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    navLinks?.classList.toggle('open');
+  });
+
+  // Close menu when clicking a link
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle?.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>

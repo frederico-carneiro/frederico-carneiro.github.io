@@ -1,16 +1,22 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 }
 
 const {
   title,
   description = "Art Director and Senior Game Developer with 7+ years of experience. Strong background in Environment art, 3D art, Weapon art and real-time visuals, with deep hands-on expertise in Unreal Engine 5.",
-  image = "/portfolio/images/og-image.jpg"
+  image = "/portfolio/images/og-image.jpg",
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 
 const siteTitle = "Frederico Carneiro | Art Director & Lead Artist";
@@ -58,6 +64,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#1a1a1a" />
   </head>
   <body>
+    {!hideHeader && <Header />}
     <slot />
+    {!hideFooter && <Footer />}
   </body>
 </html>
+
+<style is:global>
+  /* Ensure body takes full height for footer positioning */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Add padding for fixed header */
+  body > main {
+    flex: 1;
+  }
+</style>
