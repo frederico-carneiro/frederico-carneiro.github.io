@@ -1,19 +1,22 @@
 ---
+import siteConfig from '../content/site-config.json';
+
 const currentYear = new Date().getFullYear();
+const { contact } = siteConfig;
 
 const socialLinks = [
   {
-    href: 'https://artstation.com/placeholder',
+    href: contact.artstation,
     label: 'ArtStation',
     icon: 'artstation'
   },
   {
-    href: 'https://linkedin.com/in/placeholder',
+    href: contact.linkedin,
     label: 'LinkedIn',
     icon: 'linkedin'
   },
   {
-    href: 'mailto:your.email@example.com',
+    href: `mailto:${contact.email}`,
     label: 'Email',
     icon: 'email'
   },
@@ -36,7 +39,7 @@ const socialLinks = [
       ))}
     </div>
     <p class="footer-copyright">
-      &copy; {currentYear} Frederico Carneiro. All rights reserved.
+      &copy; {currentYear} {siteConfig.personal.name}. All rights reserved.
     </p>
   </div>
 </footer>

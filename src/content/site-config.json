@@ -1,0 +1,66 @@
+{
+  "personal": {
+    "name": "Frederico Carneiro",
+    "title": "Art Director & Lead Artist",
+    "specialization": "Environment, 3D Art & Weapons",
+    "statement": "Art Director and Senior Game Developer with 7+ years of experience. Strong background in Environment art, 3D art, Weapon art and real-time visuals, with deep hands-on expertise in Unreal Engine 5.",
+    "shortBio": "ADD YOUR SHORT BIO HERE (2-3 sentences for About section)",
+    "profileImage": "/images/profile.jpg"
+  },
+
+  "contact": {
+    "email": "YOUR_EMAIL@example.com",
+    "artstation": "https://www.artstation.com/YOUR_USERNAME",
+    "linkedin": "https://www.linkedin.com/in/YOUR_USERNAME"
+  },
+
+  "tools": [
+    "Unreal Engine 5",
+    "ZBrush",
+    "3DCoat",
+    "Blender",
+    "Substance Painter",
+    "Substance Designer"
+  ],
+
+  "expertise": [
+    "Art direction & visual consistency",
+    "Environment & level art pipelines",
+    "Weapon & hard-surface production",
+    "Optimization for real-time performance",
+    "Cross-discipline leadership (art / tech / design)"
+  ],
+
+  "projects": {
+    "metalEden": {
+      "title": "Metal Eden",
+      "studio": "ADD STUDIO NAME",
+      "platform": "ADD PLATFORM (e.g., PC / Console)",
+      "status": "ADD STATUS (e.g., In Development / Shipped)",
+      "roles": [
+        "Associate Art Director",
+        "Principal Artist",
+        "Prop Lead",
+        "Weapon Lead",
+        "3D Lead",
+        "Environment & Level Art"
+      ],
+      "description": "ADD SHORT PROJECT DESCRIPTION",
+      "trailerUrl": "ADD TRAILER URL (YouTube/Vimeo)",
+      "credits": "ADD LINK TO OFFICIAL CREDITS (if available)"
+    },
+    "ruiner2": {
+      "title": "RUINER 2",
+      "studio": "ADD STUDIO NAME",
+      "platform": "ADD PLATFORM",
+      "status": "ADD STATUS",
+      "roles": [
+        "Environment Artist",
+        "Level Art / Layout Support"
+      ],
+      "description": "ADD SHORT PROJECT DESCRIPTION",
+      "trailerUrl": "ADD TRAILER URL",
+      "credits": "ADD LINK TO OFFICIAL CREDITS"
+    }
+  }
+}
