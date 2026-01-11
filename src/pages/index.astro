@@ -1,18 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteConfig from '../content/site-config.json';
+
+const { personal, expertise, tools } = siteConfig;
 ---
 
 <BaseLayout title="Home">
   <main>
+    <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-bg">
+        <img
+          src="/portfolio/images/metal-eden/hero.png"
+          alt="Metal Eden environment art"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Frederico Carneiro</h1>
-        <p class="hero-title">Art Director & Lead Artist</p>
-        <p class="hero-statement">
-          Art Director and Senior Game Developer with 7+ years of experience.
-          Strong background in Environment art, 3D art, Weapon art and real-time visuals,
-          with deep hands-on expertise in Unreal Engine 5.
-        </p>
+        <h1>{personal.name}</h1>
+        <p class="hero-title">{personal.title}</p>
+        <p class="hero-statement">{personal.statement}</p>
         <div class="hero-cta">
           <a href="#work" class="btn btn-primary">View Work</a>
           <a href="/portfolio/contact" class="btn btn-secondary">Contact</a>
@@ -22,10 +30,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span></span>
       </div>
     </section>
+
+    <!-- Selected Work Section (placeholder for Step 5) -->
+    <section id="work" class="section">
+      <div class="container">
+        <h2 class="section-title">Selected Work</h2>
+        <p class="text-secondary">Coming in Step 5...</p>
+      </div>
+    </section>
+
+    <!-- Expertise Section (placeholder for Step 6) -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <h2 class="section-title">Focus & Expertise</h2>
+        <ul class="expertise-list">
+          {expertise.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p class="tools-list">
+          {tools.join(' · ')}
+        </p>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
+  /* Hero Section */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -34,30 +66,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: center;
     text-align: center;
     padding: var(--spacing-md);
+    padding-top: calc(64px + var(--spacing-md)); /* Account for fixed header */
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.7) 0%,
+      rgba(26, 26, 26, 0.5) 50%,
+      rgba(26, 26, 26, 0.8) 100%
+    );
   }
 
   .hero-content {
     max-width: 800px;
+    z-index: 1;
   }
 
   .hero h1 {
     margin-bottom: var(--spacing-xs);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   }
 
   .hero-title {
     font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
     font-weight: var(--font-weight-normal);
+    opacity: 0.9;
   }
 
   .hero-statement {
     font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
-    color: var(--text-secondary);
+    color: var(--text-primary);
     max-width: 600px;
     margin: 0 auto var(--spacing-lg);
     line-height: var(--line-height-relaxed);
+    opacity: 0.85;
   }
 
   .hero-cta {
@@ -73,13 +136,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     bottom: var(--spacing-md);
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
   }
 
   .scroll-indicator span {
     display: block;
     width: 24px;
     height: 40px;
-    border: 2px solid var(--text-muted);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 12px;
     position: relative;
   }
@@ -92,7 +156,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transform: translateX(-50%);
     width: 4px;
     height: 8px;
-    background-color: var(--text-muted);
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 2px;
     animation: scroll 2s ease-in-out infinite;
   }
@@ -103,15 +167,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       transform: translateX(-50%) translateY(0);
     }
     50% {
-      opacity: 0.5;
+      opacity: 0.3;
       transform: translateX(-50%) translateY(10px);
     }
+  }
+
+  /* Sections */
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .section--alt {
+    background-color: var(--bg-secondary);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Expertise Section */
+  .expertise-list {
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .expertise-list li {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .expertise-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  .tools-list {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
   }
 
   /* Responsive */
   @media (max-width: 640px) {
     .hero {
       padding: var(--spacing-sm);
+      padding-top: calc(64px + var(--spacing-sm));
     }
 
     .hero-cta {
@@ -122,6 +230,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .hero-cta .btn {
       width: 100%;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-indicator span::before {
+      animation: none;
     }
   }
 </style>
