@@ -19,6 +19,9 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
+        <div class="hero-profile">
+          <img src="/images/profile.png" alt="Frederico Carneiro" class="profile-image" />
+        </div>
         <h1>{personal.name}</h1>
         <p class="hero-title">{personal.title}</p>
         <p class="hero-statement">{personal.statement}</p>
@@ -159,6 +162,20 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
   .hero-content {
     max-width: 800px;
     z-index: 1;
+  }
+
+  .hero-profile {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
   .hero h1 {
