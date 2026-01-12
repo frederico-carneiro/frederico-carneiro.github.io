@@ -1,126 +1,129 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SideNav from '../components/SideNav.astro';
+import ScrollToggle from '../components/ScrollToggle.astro';
+import Lightbox from '../components/Lightbox.astro';
 import siteConfig from '../content/site-config.json';
 
 const { projects } = siteConfig;
 const project = projects.ruiner2;
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'about-project', label: 'About' },
+  { id: 'responsibilities', label: 'Responsibilities' },
+];
 ---
 
 <BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
-  <main class="case-study">
+  <SideNav sections={sections} />
+  <ScrollToggle />
+  <Lightbox />
+
+  <main class="snap-container snap-disabled">
     <!-- Section 1: Overview / Hero -->
-    <section class="section section-hero">
-      <div class="section-bg placeholder-bg">
-        <div class="placeholder-content">
-          <span>RUINER 2</span>
-          <span class="placeholder-note">Hero image coming soon</span>
-        </div>
-      </div>
-      <div class="section-overlay"></div>
+    <section id="overview" class="snap-section section-hero section-hero-no-image">
       <div class="section-content">
-        <span class="project-label">{project.studio !== "ADD STUDIO NAME" ? project.studio : "Studio"}</span>
         <h1>{project.title}</h1>
         <p class="project-roles">{project.roles.join(' · ')}</p>
+        <p class="nda-notice">NDA-protected work available on request.</p>
       </div>
     </section>
 
-    <!-- Section 2: Environment Production -->
-    <section class="section section-work">
-      <div class="container">
-        <div class="work-grid">
-          <div class="work-content">
-            <h2>Environment Production</h2>
-            <p class="section-intro">
-              Contributed to the visual identity of RUINER 2 through environment art production,
-              focusing on atmosphere and player experience.
-            </p>
-            <ul class="work-list">
-              <li>Environment asset creation and implementation</li>
-              <li>Material and texture work</li>
-              <li>Scene composition and lighting support</li>
-              <li>Visual storytelling through environmental details</li>
-            </ul>
+    <!-- Section 2: About the Project -->
+    <section id="about-project" class="snap-section section-about-project">
+      <div class="about-project-content">
+        <div class="about-project-text">
+          <h2>About the Project</h2>
+          <p>
+            RUINER 2 was a short, focused production of a vertical slice project focused on defining the art direction and delivering three representative maps to establish the game's visual and gameplay foundation.
+          </p>
+        </div>
+        <div class="about-project-stats">
+          <div class="stat-item">
+            <span class="stat-value">5 Months</span>
+            <span class="stat-label">In Production</span>
           </div>
-          <div class="work-images">
-            <div class="image-placeholder">
-              <span>Environment screenshots</span>
-            </div>
+          <div class="stat-item">
+            <span class="stat-value">14+ Developers</span>
+            <span class="stat-label">Total Team Size</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">4+ Artists</span>
+            <span class="stat-label">Art Team</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Engine</span>
+            <span class="stat-label">Unreal Engine 5</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Level Art & Collaboration -->
-    <section class="section section-work section--alt">
-      <div class="container">
-        <div class="work-grid reverse">
-          <div class="work-content">
-            <h2>Level Art & Layout</h2>
-            <p class="section-intro">
-              Supported level design with art implementation, ensuring visual coherence
-              across gameplay spaces.
-            </p>
-            <ul class="work-list">
-              <li>Level art implementation and polish</li>
-              <li>Layout support and set dressing</li>
-              <li>Collaboration with design team</li>
-              <li>Performance-conscious asset placement</li>
-            </ul>
-          </div>
-          <div class="work-images">
-            <div class="image-placeholder">
-              <span>Level art screenshots</span>
-            </div>
-          </div>
+    <!-- Section 3: Responsibilities & Leadership -->
+    <section id="responsibilities" class="snap-section section-split">
+      <div class="split-content split-content-centered">
+        <div class="split-text">
+          <h2>My Responsibilities & Scope</h2>
+          <ul class="responsibility-list">
+            <li>Co-established the game's art direction and visual language</li>
+            <li>Level art creation for the three main maps in collaboration with the team</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Section 4: Credits -->
-    <section class="section section-credits">
-      <div class="container container--narrow">
-        <h2>Credits</h2>
-        <div class="credits-info">
-          <div class="credit-item">
-            <span class="credit-label">Status</span>
-            <span class="credit-value">{project.status !== "ADD STATUS" ? project.status : "In Development"}</span>
-          </div>
-          <div class="credit-item">
-            <span class="credit-label">Studio</span>
-            <span class="credit-value">{project.studio !== "ADD STUDIO NAME" ? project.studio : "Studio"}</span>
-          </div>
-          <div class="credit-item">
-            <span class="credit-label">Role</span>
-            <span class="credit-value">{project.roles[0]}</span>
-          </div>
-        </div>
-        <a href="/" class="btn btn-secondary">
-          <span aria-hidden="true">&larr;</span>
-          Back to Home
-        </a>
-      </div>
-    </section>
-  </main>
+      </main>
 </BaseLayout>
 
 <style>
-  .case-study {
-    padding-top: 64px; /* Header height */
+  /* Snap Container */
+  .snap-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
   }
 
-  .section {
-    padding: var(--spacing-xl) 0;
+  .snap-container.snap-disabled {
+    scroll-snap-type: none;
   }
 
-  /* Hero Section */
-  .section-hero {
-    min-height: 70vh;
+  @media (max-width: 768px) {
+    .snap-container {
+      scroll-snap-type: none;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+
+  /* Snap Sections */
+  .snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-lg);
+    padding-top: calc(64px + var(--spacing-lg));
+  }
+
+  @media (max-width: 768px) {
+    .snap-section {
+      min-height: auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+      padding-top: calc(64px + var(--spacing-md));
+    }
+  }
+
+  /* Section Hero */
+  .section-hero {
+    text-align: center;
+  }
+
+  .section-hero-no-image {
+    background-color: var(--bg-secondary);
   }
 
   .section-bg {
@@ -129,27 +132,10 @@ const project = projects.ruiner2;
     z-index: -2;
   }
 
-  .placeholder-bg {
-    background-color: var(--bg-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .placeholder-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    color: var(--text-muted);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-semibold);
-    opacity: 0.3;
-  }
-
-  .placeholder-note {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-normal);
+  .section-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .section-overlay {
@@ -158,14 +144,15 @@ const project = projects.ruiner2;
     z-index: -1;
     background: linear-gradient(
       to bottom,
-      rgba(14, 15, 17, 0.3) 0%,
-      rgba(14, 15, 17, 0.6) 100%
+      rgba(14, 15, 17, 0.6) 0%,
+      rgba(14, 15, 17, 0.4) 50%,
+      rgba(14, 15, 17, 0.8) 100%
     );
   }
 
   .section-content {
-    position: relative;
-    z-index: 1;
+    max-width: var(--content-width);
+    width: 100%;
   }
 
   .project-label {
@@ -180,61 +167,177 @@ const project = projects.ruiner2;
 
   .section-hero h1 {
     margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   }
 
   .project-roles {
     font-size: var(--font-size-lg);
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    opacity: 0.9;
   }
 
-  /* Work Sections */
-  .section-work {
-    padding: var(--spacing-2xl) 0;
+  .nda-notice {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: #AFC6D9;
+    margin-top: var(--spacing-lg);
   }
 
-  .section--alt {
-    background-color: var(--bg-secondary);
+  /* Section About Project */
+  .section-about-project {
+    background-color: var(--bg-primary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 
-  .work-grid {
+  .about-project-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-2xl);
+    max-width: var(--max-width);
+    width: 100%;
     align-items: center;
   }
 
-  .work-grid.reverse .work-content {
-    order: 2;
-  }
-
-  .work-grid.reverse .work-images {
-    order: 1;
-  }
-
-  .work-content h2 {
+  .about-project-text h2 {
     margin-bottom: var(--spacing-md);
   }
 
-  .section-intro {
+  .about-project-text p {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-md);
     line-height: var(--line-height-relaxed);
   }
 
-  .work-list {
+  .about-project-text p + p {
+    margin-top: var(--spacing-sm);
+  }
+
+  .about-project-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--spacing-lg);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .about-project-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+
+    .about-project-stats {
+      justify-content: space-between;
+    }
+  }
+
+  /* Section Split */
+  .section-split {
+    background-color: var(--bg-secondary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .section-with-bg {
+    position: relative;
+    background-color: transparent;
+  }
+
+  .section-with-bg .section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .section-with-bg .section-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .section-with-bg .section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(14, 15, 17, 0.75);
+  }
+
+  .section-with-bg .split-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .split-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: var(--max-width);
+    width: 100%;
+    align-items: center;
+  }
+
+  .split-content-centered {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .split-content-centered .responsibility-list {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .split-content-centered .responsibility-list li::before {
+    display: none;
+  }
+
+  .split-content-centered .responsibility-list li {
+    padding-left: 0;
+  }
+
+  .split-text h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .responsibility-list {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
   }
 
-  .work-list li {
+  .responsibility-list li {
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     padding-left: var(--spacing-md);
     position: relative;
   }
 
-  .work-list li::before {
+  .responsibility-list li::before {
     content: '';
     position: absolute;
     left: 0;
@@ -244,40 +347,340 @@ const project = projects.ruiner2;
     background-color: var(--text-muted);
   }
 
-  .work-images {
+  .split-image {
     border-radius: var(--radius-md);
     overflow: hidden;
   }
 
-  .image-placeholder {
-    aspect-ratio: 16 / 10;
-    background-color: var(--bg-tertiary);
+  .split-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .split-video {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .split-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .split-content {
+      grid-template-columns: 1fr;
+    }
+
+    .split-image {
+      order: -1;
+    }
+  }
+
+  /* Section Gallery */
+  .section-gallery {
+    background-color: var(--bg-primary);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gallery-placeholder {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gallery-placeholder p {
+    font-size: var(--font-size-xl);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .placeholder-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  .section-details h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-details ul {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .section-details li {
+    color: var(--text-secondary);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .section-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 2px;
+    background-color: var(--text-muted);
+  }
+
+  /* Section Environments */
+  .section-environments {
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .env-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  .env-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .env-image.large {
+    grid-row: span 2;
+  }
+
+  .env-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .env-content {
+    text-align: center;
+    max-width: var(--content-width);
+  }
+
+  .env-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-description {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 800px;
+  }
+
+  .collaboration-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 800px;
+  }
+
+  .collaboration-list li {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .collaboration-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+  }
+
+  .section-compact {
+    min-height: auto;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .section-no-top-padding {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .env-image-row-no-margin {
+    margin-top: 0;
+  }
+
+  .env-hero-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: var(--spacing-md);
+  }
+
+  .env-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-hero-video {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: var(--spacing-md);
+  }
+
+  .env-hero-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 10px;
+  }
+
+  .env-image-half img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-archive-link {
+    width: 100%;
+    text-align: right;
+    margin-top: var(--spacing-sm);
+    padding-right: 140px;
+  }
+
+  .env-archive-link a {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .env-archive-link a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .env-image-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .env-content ul {
+    display: flex;
     justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+  }
+
+  .env-content li {
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .env-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .env-image.large {
+      grid-row: auto;
+    }
+
+    .env-content ul {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+  }
+
+  /* Section Optimization */
+  .section-optimization {
+    background-color: var(--bg-primary);
+    min-height: auto;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .section-optimization h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-intro {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+  }
+
+  .optimization-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .optimization-card {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-md);
     border-radius: var(--radius-md);
   }
 
-  .image-placeholder span {
-    color: var(--text-muted);
+  .optimization-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+  }
+
+  .optimization-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .optimization-card li {
     font-size: var(--font-size-sm);
+    color: var(--text-secondary);
   }
 
-  /* Credits Section */
+  @media (max-width: 768px) {
+    .optimization-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Section Credits */
   .section-credits {
+    background-color: var(--bg-secondary);
     text-align: center;
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .section-credits h2 {
-    margin-bottom: var(--spacing-lg);
   }
 
   .credits-info {
     display: flex;
     justify-content: center;
     gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
     flex-wrap: wrap;
   }
 
@@ -300,23 +703,26 @@ const project = projects.ruiner2;
     color: var(--text-primary);
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .work-grid {
-      grid-template-columns: 1fr;
-    }
+  .credits-reflection {
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+    text-align: left;
+  }
 
-    .work-grid.reverse .work-content,
-    .work-grid.reverse .work-images {
-      order: unset;
-    }
+  .credits-reflection h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
 
-    .work-images {
-      order: -1;
-    }
+  .credits-reflection p {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
 
-    .section-hero {
-      min-height: 50vh;
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .snap-container {
+      scroll-snap-type: none;
     }
   }
 </style>

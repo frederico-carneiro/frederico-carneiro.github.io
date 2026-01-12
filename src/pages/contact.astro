@@ -46,7 +46,7 @@ const { personal, contact } = siteConfig;
         </div>
 
         <div class="contact-note">
-          <p>Based in Poland. Available for remote work worldwide.</p>
+          <p>Based in <strong>Poland, Warsaw</strong>. Available for remote work worldwide.</p>
         </div>
       </div>
     </section>
@@ -174,8 +174,13 @@ const { personal, contact } = siteConfig;
   }
 
   .contact-note p {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+  }
+
+  .contact-note strong {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
   }
 
   /* Responsive */

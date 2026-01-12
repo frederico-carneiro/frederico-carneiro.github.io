@@ -7,54 +7,104 @@ const { personal, expertise, tools } = siteConfig;
 
 <BaseLayout title="About" description={personal.statement}>
   <main class="about-page">
-    <section class="section hero-section">
+    <section class="section hero-section hero-with-bg">
+      <div class="hero-bg">
+        <img src="/images/about-bg.png" alt="" loading="eager" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container">
+          <div class="about-header">
+            <div class="profile-image">
+              <img src="/images/profile.png" alt="Frederico Carneiro" />
+            </div>
+            <div class="about-intro">
+              <h1>{personal.name}</h1>
+              <p class="title">{personal.title}</p>
+              <p class="specialization">{personal.specialization}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container container--narrow">
+          <div class="about-content">
+            <h2>Background</h2>
+            <p class="statement">Art Director and Senior Artist with 7+ years of experience, specializing in environment, level, and weapon art, with hands-on expertise in Unreal Engine 5.</p>
+
+            <p class="bio">Over the course of my career, I've worked across multiple disciplines—from hands-on asset production to leading art teams and shaping visual direction. My focus is on delivering production-ready work that balances visual quality, gameplay readability, and real-time performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Timeline -->
+    <section class="section timeline-section">
       <div class="container">
-        <div class="about-header">
-          <div class="profile-image">
-            <img src="/images/profile.png" alt="Frederico Carneiro" />
+        <h2 class="timeline-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          <!-- Reikon Games - Associate Art Director -->
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - Present</span>
+              <h3 class="timeline-company">REIKON GAMES</h3>
+              <p class="timeline-role">Associate Art Director</p>
+            </div>
           </div>
-          <div class="about-intro">
-            <h1>{personal.name}</h1>
-            <p class="title">{personal.title}</p>
-            <p class="specialization">{personal.specialization}</p>
+
+          <!-- Reikon Games - Lead 3D Artist -->
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - Present</span>
+              <h3 class="timeline-company">REIKON GAMES</h3>
+              <p class="timeline-role">Lead 3D Artist, Lead Weapon Artist</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container container--narrow">
-        <div class="about-content">
-          <h2>Background</h2>
-          <p class="statement">{personal.statement}</p>
+          <!-- Reikon Games - Lead Prop Artist -->
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2020 - 2021</span>
+              <h3 class="timeline-company">REIKON GAMES</h3>
+              <p class="timeline-role">Lead Prop Artist</p>
+            </div>
+          </div>
 
-          <p class="bio">
-            {personal.shortBio !== "ADD YOUR SHORT BIO HERE (2-3 sentences for About section)"
-              ? personal.shortBio
-              : "With over 7 years in game development, I've had the opportunity to work across multiple disciplines—from hands-on asset creation to leading art teams and defining visual direction. My focus has always been on delivering production-ready work that balances quality with performance."}
-          </p>
-        </div>
-      </div>
-    </section>
+          <!-- UNIT9 -->
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2018</span>
+              <h3 class="timeline-company">UNIT9</h3>
+              <p class="timeline-role">3D Artist</p>
+            </div>
+          </div>
 
-    <section class="section section--alt">
-      <div class="container container--narrow">
-        <h2>Expertise</h2>
-        <ul class="expertise-list">
-          {expertise.map(item => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
+          <!-- SwingDev - 3D Artist -->
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2017 - 2018</span>
+              <h3 class="timeline-company">SWINGDEV</h3>
+              <p class="timeline-role">3D Artist</p>
+            </div>
+          </div>
 
-    <section class="section">
-      <div class="container container--narrow">
-        <h2>Tools</h2>
-        <div class="tools-grid">
-          {tools.map(tool => (
-            <span class="tool-tag">{tool}</span>
-          ))}
+          <!-- SwingDev - Junior -->
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2017</span>
+              <h3 class="timeline-company">SWINGDEV</h3>
+              <p class="timeline-role">Junior 3D Artist</p>
+              <p class="timeline-note">Internship</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -84,7 +134,36 @@ const { personal, expertise, tools } = siteConfig;
 
   /* Hero Section */
   .hero-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-md) 0;
+  }
+
+  .hero-with-bg {
+    position: relative;
     padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(14, 15, 17, 0.8);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
   }
 
   .about-header {
@@ -120,6 +199,7 @@ const { personal, expertise, tools } = siteConfig;
   .specialization {
     font-size: var(--font-size-base);
     color: var(--text-muted);
+    margin-bottom: var(--spacing-2xl);
   }
 
   /* Content */
@@ -176,6 +256,123 @@ const { personal, expertise, tools } = siteConfig;
     border-radius: var(--radius-sm);
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
+  }
+
+  /* Timeline Section */
+  .timeline-section {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .timeline-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-md) 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #4CAF50;
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: var(--spacing-md);
+  }
+
+  .timeline-item.left {
+    left: 0;
+    text-align: right;
+    padding-right: var(--spacing-xl);
+  }
+
+  .timeline-item.right {
+    left: 50%;
+    text-align: left;
+    padding-left: var(--spacing-xl);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    top: var(--spacing-md);
+  }
+
+  .timeline-item.left .timeline-dot {
+    right: -7px;
+  }
+
+  .timeline-item.right .timeline-dot {
+    left: -7px;
+  }
+
+  .timeline-date {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: #4CAF50;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .timeline-company {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .timeline-role {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .timeline-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: var(--spacing-xs);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-line {
+      left: 20px;
+    }
+
+    .timeline-item {
+      width: 100%;
+      padding-left: 50px;
+      padding-right: 0;
+      text-align: left;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+      left: 0;
+      text-align: left;
+      padding-left: 50px;
+      padding-right: var(--spacing-md);
+    }
+
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+      left: 13px;
+      right: auto;
+    }
   }
 
   /* CTA Section */

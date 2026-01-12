@@ -168,9 +168,12 @@ function isActive(href: string): boolean {
       justify-content: flex-start;
       padding-top: var(--spacing-lg);
       gap: var(--spacing-sm);
-      background-color: var(--bg-primary);
+      background-color: rgba(14, 15, 17, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transform: translateX(100%);
       transition: transform var(--transition-base);
+      z-index: 99;
     }
 
     .nav-links.open {

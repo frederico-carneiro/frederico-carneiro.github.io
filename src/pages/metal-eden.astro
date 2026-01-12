@@ -34,7 +34,7 @@ const sections = [
       <div class="section-overlay"></div>
       <div class="section-content">
         <h1>{project.title}</h1>
-        <p class="project-roles">{project.roles.join(' · ')}</p>
+        <p class="project-roles">Art Director | Environment, Level & Weapon Art</p>
       </div>
     </section>
 
@@ -123,7 +123,7 @@ const sections = [
       <div class="env-content">
         <h2>Weapon Art</h2>
         <p class="section-description">
-          Weapon asset production and pipeline ownership, balancing visual identity, gameplay readability, and real-time performance constraints.
+          Weapon asset production and pipeline ownership, balancing visual identity, gameplay readability.
         </p>
       </div>
       <div class="env-hero-video">
@@ -563,14 +563,11 @@ const sections = [
   }
 
   .collaboration-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--text-muted);
+    display: none;
+  }
+
+  .collaboration-list li {
+    padding-left: 0;
   }
 
   .section-compact {
