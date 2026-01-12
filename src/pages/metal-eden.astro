@@ -12,11 +12,11 @@ const sections = [
   { id: 'overview', label: 'Overview' },
   { id: 'about-project', label: 'About' },
   { id: 'responsibilities', label: 'Responsibilities' },
-  { id: 'weapons', label: 'Weapons' },
-  { id: 'props', label: 'Props' },
   { id: 'environments', label: 'Environments' },
+  { id: 'weapons', label: 'Weapons' },
+  { id: 'props', label: '3D Art' },
+  { id: 'collaboration', label: 'Collaboration' },
   { id: 'optimization', label: 'Optimization' },
-  { id: 'credits', label: 'Credits' },
 ];
 ---
 
@@ -75,151 +75,128 @@ const sections = [
     <section id="responsibilities" class="snap-section section-split">
       <div class="split-content">
         <div class="split-text">
-          <h2>Responsibilities & Leadership</h2>
+          <h2>My Responsibilities & Scope</h2>
           <ul class="responsibility-list">
-            <li>Led environment, prop, and weapon art production</li>
-            <li>Defined visual direction with design and tech teams</li>
-            <li>Oversaw asset quality, consistency, and performance budgets</li>
-            <li>Mentored artists and coordinated cross-discipline workflows</li>
+            <li>Contributed to establishing and maintaining the game's art direction</li>
+            <li>Level art production from blockout through final polish</li>
+            <li>Weapon asset creation and ownership of the weapon production pipeline</li>
+            <li>Hard-surface visual direction and production pipeline ownership</li>
+            <li>Performance-aware optimization across maps and content for target platforms</li>
           </ul>
         </div>
-        <div class="split-image">
-          <img src="/images/metal-eden/env-1.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+        <div class="split-video">
+          <video autoplay loop muted playsinline>
+            <source src="/images/metal-eden/responsibilities-video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Weapons -->
-    <section id="weapons" class="snap-section section-gallery">
-      <div class="section-content">
-        <h2>Weapons</h2>
-        <p class="section-subtitle">Weapon Lead</p>
-        <div class="gallery-placeholder">
-          <p>Weapon art showcase</p>
-          <span class="placeholder-note">Final in-game weapons · High-poly → Low-poly · UVs / Textures · Trim sheets</span>
-        </div>
-        <div class="section-details">
-          <h3>Production Approach</h3>
-          <ul>
-            <li>Modular reuse strategy for weapon components</li>
-            <li>Optimized for real-time performance constraints</li>
-            <li>Scalable production pipeline</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 4: Props & Modular Kits -->
-    <section id="props" class="snap-section section-gallery">
-      <div class="section-content">
-        <h2>Props & Modular Kits</h2>
-        <p class="section-subtitle">Prop Lead · 3D Lead</p>
-        <div class="gallery-placeholder">
-          <p>Modular kit showcase</p>
-          <span class="placeholder-note">Modular breakdowns · Asset kits · Reuse examples</span>
-        </div>
-        <div class="section-details">
-          <h3>Technical Focus</h3>
-          <ul>
-            <li>Modular logic for environment assembly</li>
-            <li>Memory and draw-call optimization</li>
-            <li>Consistent visual language across asset types</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 5: Environments & Level Art -->
+    <!-- Section 3: Environments & Level Art -->
     <section id="environments" class="snap-section section-environments">
-      <div class="env-gallery">
-        <div class="env-image large">
-          <img src="/images/metal-eden/env-2.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+      <div class="env-content">
+        <h2>Level Art & Environment Direction</h2>
+        <p class="section-description">
+          Full ownership of level art production from blockout to final polish across multiple levels of the game. Responsible for the overall visual pass, including composition, design, mood, set dressing and detailing, with all decisions driven by gameplay, while guiding the team through consistent feedback.
+        </p>
+      </div>
+      <div class="env-hero-image">
+        <img src="/images/metal-eden/env-hero.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+      </div>
+      <div class="env-image-row">
+        <div class="env-image-half">
+          <img src="/images/metal-eden/env-left.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
-        <div class="env-image">
-          <img src="/images/metal-eden/env-3.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
-        </div>
-        <div class="env-image">
-          <img src="/images/metal-eden/env-4.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+        <div class="env-image-half">
+          <img src="/images/metal-eden/env-right.png" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
       </div>
+      <div class="env-archive-link">
+        <a href="https://www.artstation.com/kiko_main" target="_blank" rel="noopener noreferrer">
+          Full Environment and Level Art available on ArtStation →
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 4: Weapons -->
+    <section id="weapons" class="snap-section section-environments">
       <div class="env-content">
-        <h2>Environments & Level Art</h2>
-        <p class="section-subtitle">Principal Environment Artist · Principal Level Artist</p>
-        <ul>
-          <li>Visual hierarchy and player readability</li>
-          <li>Lighting and composition</li>
-          <li>Set dressing logic and level flow</li>
+        <h2>Weapon Art</h2>
+        <p class="section-description">
+          Weapon asset production and pipeline ownership, balancing visual identity, gameplay readability, and real-time performance constraints.
+        </p>
+      </div>
+      <div class="env-hero-video">
+        <video autoplay loop muted playsinline>
+          <source src="/images/metal-eden/weapons-hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="env-archive-link">
+        <a href="https://www.artstation.com/kiko_main" target="_blank" rel="noopener noreferrer">
+          Full Weapons Art available on ArtStation →
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 5: Props & Modular Kits -->
+    <section id="props" class="snap-section section-environments">
+      <div class="env-content">
+        <h2>3D Art</h2>
+        <p class="section-description">
+          Established hard-surface visual direction and production pipelines for the team, while producing production-ready assets from initial concept art through final in-game models.
+        </p>
+      </div>
+      <div class="env-hero-image">
+        <img src="/images/metal-eden/props-hero.png" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+      </div>
+      <div class="env-image-row">
+        <div class="env-image-half">
+          <img src="/images/metal-eden/props-left.png" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+        </div>
+        <div class="env-image-half">
+          <img src="/images/metal-eden/props-right.png" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+        </div>
+      </div>
+      <div class="env-archive-link">
+        <a href="https://www.artstation.com/kiko_main" target="_blank" rel="noopener noreferrer">
+          More props and Concept Art available on ArtStation →
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 6: Collaboration & Leadership -->
+    <section id="collaboration" class="snap-section section-environments section-compact">
+      <div class="env-content">
+        <h2>Collaboration & Leadership</h2>
+        <ul class="collaboration-list">
+          <li>Provided constant visual feedback and guidance to maintain quality and consistency</li>
+          <li>Collaborated closely with gameplay and tech to align visual direction with gameplay and performance goals</li>
+          <li>Balanced hands-on production with broader leadership responsibilities</li>
         </ul>
       </div>
     </section>
 
-    <!-- Section 6: Optimization -->
+    <!-- Section 7: Optimization -->
     <section id="optimization" class="snap-section section-optimization">
       <div class="section-content">
         <h2>Optimization</h2>
         <p class="section-intro">
-          Performance optimization was a key differentiator in this project, balancing visual quality with real-time constraints.
+          Visual quality and optimization are treated as inseparable throughout my production workflow.
         </p>
         <div class="optimization-grid">
           <div class="optimization-card">
-            <h3>Challenges</h3>
-            <ul>
-              <li>Large open environments</li>
-              <li>Dense asset placement</li>
-              <li>Memory constraints</li>
-            </ul>
+            <p>Implemented aggressive level streaming strategies to support large, model heavy environments</p>
           </div>
           <div class="optimization-card">
-            <h3>Solutions</h3>
-            <ul>
-              <li>LOD implementation</li>
-              <li>Texture atlasing</li>
-              <li>Draw call batching</li>
-            </ul>
+            <p>Use of shader-driven materials to reduce texture memory and draw calls</p>
           </div>
           <div class="optimization-card">
-            <h3>Results</h3>
-            <ul>
-              <li>Stable frame rate</li>
-              <li>Reduced memory footprint</li>
-              <li>Maintained visual quality</li>
-            </ul>
+            <p>Environment kitbashing in engine to maximize asset reuse</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 7: Results & Credits -->
-    <section id="credits" class="snap-section section-credits">
-      <div class="section-content">
-        <h2>Results & Credits</h2>
-        <div class="credits-info">
-          <div class="credit-item">
-            <span class="credit-label">Status</span>
-            <span class="credit-value">{project.status}</span>
-          </div>
-          <div class="credit-item">
-            <span class="credit-label">Studio</span>
-            <span class="credit-value">{project.studio}</span>
-          </div>
-          <div class="credit-item">
-            <span class="credit-label">Role</span>
-            <span class="credit-value">{project.roles[0]}</span>
-          </div>
-        </div>
-        <div class="credits-reflection">
-          <h3>Reflection</h3>
-          <p>
-            This project challenged me to balance art direction responsibilities with hands-on production work.
-            Leading multiple disciplines while maintaining quality standards was a significant growth opportunity.
-          </p>
-        </div>
-        <a href="/" class="btn btn-secondary">
-          <span aria-hidden="true">&larr;</span>
-          Back to Home
-        </a>
-      </div>
-    </section>
   </main>
 </BaseLayout>
 
@@ -322,6 +299,9 @@ const sections = [
   /* Section About Project */
   .section-about-project {
     background-color: var(--bg-primary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 
   .about-project-content {
@@ -391,6 +371,9 @@ const sections = [
   /* Section Split */
   .section-split {
     background-color: var(--bg-secondary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 
   .split-content {
@@ -437,6 +420,17 @@ const sections = [
   .split-image img {
     width: 100%;
     height: auto;
+  }
+
+  .split-video {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .split-video video {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   @media (max-width: 768px) {
@@ -511,7 +505,7 @@ const sections = [
   .section-environments {
     background-color: var(--bg-secondary);
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: 0;
   }
 
   .env-gallery {
@@ -543,7 +537,108 @@ const sections = [
   }
 
   .env-content h2 {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-description {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 800px;
+  }
+
+  .collaboration-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 800px;
+  }
+
+  .collaboration-list li {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .collaboration-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+  }
+
+  .section-compact {
+    min-height: auto;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .env-hero-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: var(--spacing-md);
+  }
+
+  .env-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-hero-video {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: var(--spacing-md);
+  }
+
+  .env-hero-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 10px;
+  }
+
+  .env-image-half img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .env-archive-link {
+    width: 100%;
+    text-align: right;
+    margin-top: var(--spacing-sm);
+    padding-right: 140px;
+  }
+
+  .env-archive-link a {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .env-archive-link a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .env-image-row {
+      grid-template-columns: 1fr;
+    }
   }
 
   .env-content ul {
@@ -577,6 +672,14 @@ const sections = [
   /* Section Optimization */
   .section-optimization {
     background-color: var(--bg-primary);
+    min-height: auto;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .section-optimization h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
   }
 
   .section-intro {
