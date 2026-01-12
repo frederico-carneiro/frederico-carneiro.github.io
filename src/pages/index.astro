@@ -19,9 +19,6 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <div class="hero-profile">
-          <img src="/images/profile.png" alt="Frederico Carneiro" class="profile-image" />
-        </div>
         <h1>{personal.name}</h1>
         <p class="hero-title">{personal.title}</p>
         <p class="hero-statement">{personal.statement}</p>
@@ -42,19 +39,21 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
           <!-- METAL EDEN - Featured/Primary -->
           <ProjectCard
             title={projects.metalEden.title}
-            roles={projects.metalEden.roles}
+            roles={["Associate Art Director", "Lead Weapon Artist", "3D Art Lead"]}
             image="/images/metal-eden/thumbnail.png"
             href="/metal-eden"
             featured={true}
+            description="An adrenaline-rush sci-fi FPS developed by Reikon Games (Unreal Engine 5)"
           />
 
           <!-- RUINER 2 -->
           <ProjectCard
             title={projects.ruiner2.title}
-            roles={projects.ruiner2.roles}
-            image="/images/ruiner-2/placeholder.svg"
+            roles={["Associate Art Director", "Environment Artist", "Level Artist"]}
+            image="/images/ruiner-2/thumbnail.jpg"
             href="/ruiner-2"
             featured={true}
+            description="Cyberpunk action game sequel by Reikon Games"
           />
         </div>
       </div>
@@ -154,9 +153,9 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     z-index: -1;
     background: linear-gradient(
       to bottom,
-      rgba(14, 15, 17, 0.7) 0%,
-      rgba(14, 15, 17, 0.5) 50%,
-      rgba(14, 15, 17, 0.8) 100%
+      rgba(14, 15, 17, 0.8) 0%,
+      rgba(14, 15, 17, 0.6) 50%,
+      rgba(14, 15, 17, 0.9) 100%
     );
   }
 
@@ -165,31 +164,15 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     z-index: 1;
   }
 
-  .hero-profile {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .profile-image {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 35%;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
   .hero h1 {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 0.25rem;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   }
 
   .hero-title {
     font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
     color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     font-weight: var(--font-weight-normal);
     opacity: 0.9;
   }
@@ -198,9 +181,9 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
     color: var(--text-primary);
     max-width: 600px;
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto var(--spacing-xl);
     line-height: var(--line-height-relaxed);
-    opacity: 0.85;
+    opacity: 0.95;
   }
 
   .hero-cta {
@@ -208,6 +191,10 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     gap: var(--spacing-sm);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .hero-cta .btn-secondary {
+    background-color: rgba(14, 15, 17, 0.5);
   }
 
   /* Scroll Indicator */

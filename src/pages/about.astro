@@ -11,9 +11,7 @@ const { personal, expertise, tools } = siteConfig;
       <div class="container">
         <div class="about-header">
           <div class="profile-image">
-            <div class="profile-placeholder">
-              <span>FC</span>
-            </div>
+            <img src="/images/profile.png" alt="Frederico Carneiro" />
           </div>
           <div class="about-intro">
             <h1>{personal.name}</h1>
@@ -99,17 +97,14 @@ const { personal, expertise, tools } = siteConfig;
     flex-shrink: 0;
   }
 
-  .profile-placeholder {
+  .profile-image img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: var(--bg-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-muted);
+    object-fit: cover;
+    object-position: center 35%;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
   .about-intro h1 {
