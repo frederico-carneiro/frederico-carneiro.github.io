@@ -60,7 +60,11 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     </section>
 
     <!-- Expertise Section -->
-    <section class="section section--alt">
+    <section class="section expertise-section">
+      <div class="expertise-bg">
+        <img src="/images/metal-eden/expertise-bg.png" alt="" loading="lazy" />
+      </div>
+      <div class="expertise-overlay"></div>
       <div class="container container--narrow">
         <h2 class="section-title">Focus & Expertise</h2>
         <ul class="expertise-list">
@@ -75,7 +79,11 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     </section>
 
     <!-- Short About Section -->
-    <section class="section">
+    <section class="section about-section">
+      <div class="about-bg">
+        <img src="/images/metal-eden/about-bg.png" alt="" loading="lazy" />
+      </div>
+      <div class="about-overlay"></div>
       <div class="container container--narrow about-preview">
         <h2 class="section-title">About</h2>
         <p class="about-text">
@@ -91,7 +99,11 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section section--alt contact-section">
+    <section id="contact" class="section contact-section">
+      <div class="contact-bg">
+        <img src="/images/metal-eden/footer-bg.png" alt="" loading="lazy" />
+      </div>
+      <div class="contact-overlay"></div>
       <div class="container container--narrow">
         <h2 class="section-title text-center">Get in Touch</h2>
         <p class="contact-text">
@@ -264,6 +276,32 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
   }
 
   /* Expertise Section */
+  .expertise-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .expertise-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .expertise-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5);
+  }
+
+  .expertise-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(14, 15, 17, 0.85);
+  }
+
   .expertise-list {
     display: grid;
     gap: var(--spacing-sm);
@@ -272,7 +310,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
 
   .expertise-list li {
     font-size: var(--font-size-lg);
-    color: var(--text-secondary);
+    color: var(--text-primary);
     padding-left: var(--spacing-md);
     position: relative;
   }
@@ -289,11 +327,38 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
 
   .tools-list {
     font-size: var(--font-size-sm);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 0.02em;
   }
 
   /* About Preview Section */
+  .about-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: var(--spacing-xl);
+  }
+
+  .about-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .about-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5);
+  }
+
+  .about-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(14, 15, 17, 0.85);
+  }
+
   .about-preview {
     text-align: center;
   }
@@ -301,13 +366,38 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
   .about-text {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
     max-width: 700px;
     margin: 0 auto var(--spacing-md);
   }
 
   /* Contact Section */
   .contact-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: var(--spacing-xl);
     padding-bottom: var(--spacing-2xl);
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .contact-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5);
+  }
+
+  .contact-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(14, 15, 17, 0.85);
   }
 
   .contact-text {

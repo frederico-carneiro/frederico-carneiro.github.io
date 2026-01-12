@@ -10,6 +10,7 @@ const project = projects.metalEden;
 
 const sections = [
   { id: 'overview', label: 'Overview' },
+  { id: 'about-project', label: 'About' },
   { id: 'responsibilities', label: 'Responsibilities' },
   { id: 'weapons', label: 'Weapons' },
   { id: 'props', label: 'Props' },
@@ -28,17 +29,49 @@ const sections = [
     <!-- Section 1: Overview / Hero -->
     <section id="overview" class="snap-section section-hero">
       <div class="section-bg">
-        <img src="/images/metal-eden/hero.png" alt="METAL EDEN overview" loading="eager" />
+        <img src="/images/metal-eden/hero-main.png" alt="METAL EDEN overview" loading="eager" />
       </div>
       <div class="section-overlay"></div>
       <div class="section-content">
-        <span class="project-label">{project.studio}</span>
         <h1>{project.title}</h1>
         <p class="project-roles">{project.roles.join(' · ')}</p>
       </div>
     </section>
 
-    <!-- Section 2: Responsibilities & Leadership -->
+    <!-- Section 2: About the Project -->
+    <section id="about-project" class="snap-section section-about-project">
+      <div class="about-project-content">
+        <div class="about-project-text">
+          <h2>About the Project</h2>
+          <p>
+            METAL EDEN is a AA sci-fi FPS developed by Reikon Games in Unreal Engine 5, requiring strong visual readability and cohesion across dense, high-velocity combat spaces.
+          </p>
+          <p>
+            The art direction drew from Akira, Ghost in the Shell, and Metal Gear Solid, shaping those influences into a cohesive, fresh visual language.
+          </p>
+        </div>
+        <div class="about-project-stats">
+          <div class="stat-item">
+            <span class="stat-value">3+ Years</span>
+            <span class="stat-label">In Production</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">120+ Developers</span>
+            <span class="stat-label">Total Team Size</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">30+ Artists</span>
+            <span class="stat-label">Art Team</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Engine</span>
+            <span class="stat-label">Unreal Engine 5</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Responsibilities & Leadership -->
     <section id="responsibilities" class="snap-section section-split">
       <div class="split-content">
         <div class="split-text">
@@ -284,6 +317,75 @@ const sections = [
     font-size: var(--font-size-lg);
     color: var(--text-primary);
     opacity: 0.9;
+  }
+
+  /* Section About Project */
+  .section-about-project {
+    background-color: var(--bg-primary);
+  }
+
+  .about-project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    max-width: var(--max-width);
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-project-text h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-project-text p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .about-project-text p + p {
+    margin-top: var(--spacing-sm);
+  }
+
+  .about-project-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--spacing-lg);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .about-project-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+
+    .about-project-stats {
+      justify-content: space-between;
+    }
   }
 
   /* Section Split */

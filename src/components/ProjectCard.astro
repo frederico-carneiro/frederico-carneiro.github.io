@@ -59,7 +59,7 @@ const { title, roles, image, href, featured = false, trailerUrl, description, ke
 
   .project-title {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.02em;
     margin-bottom: 0.5rem; /* 8px - tight, description belongs to title */
     transition: color var(--transition-fast);
@@ -106,8 +106,11 @@ const { title, roles, image, href, featured = false, trailerUrl, description, ke
     position: relative;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-radius: 4px; /* Minimal - sharp, editorial feel */
+    border-radius: 0;
     background-color: var(--bg-secondary);
+    /* Break out of container to full width */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
   }
 
   .project-image img {
@@ -180,6 +183,7 @@ const { title, roles, image, href, featured = false, trailerUrl, description, ke
 
   .featured .project-title {
     font-size: 2.5rem;
+    font-weight: 800;
   }
 
   /* Focus state for accessibility */
