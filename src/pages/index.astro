@@ -471,6 +471,24 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     margin-left: auto;
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .contact-link {
+      flex-wrap: wrap;
+    }
+
+    .contact-value {
+      width: 100%;
+      margin-left: 0;
+      margin-top: var(--spacing-xs);
+      padding-left: calc(24px + var(--spacing-sm));
+      white-space: normal;
+      word-break: break-all;
+    }
   }
 
   .text-center {

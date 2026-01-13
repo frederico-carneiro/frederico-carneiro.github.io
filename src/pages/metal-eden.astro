@@ -381,7 +381,14 @@ const sections = [
     }
 
     .about-project-stats {
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-md);
+      width: 100%;
+    }
+
+    .stat-item {
+      align-items: center;
     }
   }
 

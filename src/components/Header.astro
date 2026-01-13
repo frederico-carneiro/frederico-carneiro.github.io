@@ -160,28 +160,44 @@ function isActive(href: string): boolean {
     }
 
     .nav-links {
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-top: var(--spacing-lg);
-      gap: var(--spacing-sm);
-      background: #0E0F11 !important;
+      display: flex !important;
+      position: absolute !important;
+      top: 64px !important;
+      right: 0 !important;
+      left: auto !important;
+      width: auto !important;
+      height: auto !important;
+      min-height: auto !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
+      padding: 1rem 1.5rem !important;
+      gap: 0.5rem !important;
+      background-color: #0E0F11 !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
       transform: translateX(100%);
-      transition: transform var(--transition-base);
-      z-index: 99;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 99 !important;
+      margin: 0.5rem 1rem 0 0 !important;
     }
 
     .nav-links.open {
       transform: translateX(0);
+      opacity: 1;
     }
 
     .nav-link {
-      font-size: var(--font-size-lg);
-      padding: var(--spacing-sm);
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      display: block;
+      color: var(--text-primary);
+      text-align: left;
+    }
+
+    .nav-links li {
+      width: 100%;
     }
 
     /* Animate hamburger to X */
