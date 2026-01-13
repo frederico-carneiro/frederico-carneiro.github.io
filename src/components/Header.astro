@@ -20,7 +20,7 @@ function isActive(href: string): boolean {
 <header class="header">
   <nav class="nav container">
     <a href="/" class="nav-logo">
-      <span class="logo-text">FC</span>
+      <span class="logo-text">FREDERICO CARNEIRO</span>
     </a>
 
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -67,8 +67,9 @@ function isActive(href: string): boolean {
     align-items: center;
     gap: var(--spacing-xs);
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-base);
     color: var(--text-primary);
+    letter-spacing: 0.1em;
   }
 
   .logo-text {
@@ -168,9 +169,7 @@ function isActive(href: string): boolean {
       justify-content: flex-start;
       padding-top: var(--spacing-lg);
       gap: var(--spacing-sm);
-      background-color: rgba(14, 15, 17, 0.98);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: #0E0F11 !important;
       transform: translateX(100%);
       transition: transform var(--transition-base);
       z-index: 99;

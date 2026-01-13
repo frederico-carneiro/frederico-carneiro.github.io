@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SideNav from '../components/SideNav.astro';
-import ScrollToggle from '../components/ScrollToggle.astro';
 import Lightbox from '../components/Lightbox.astro';
 import siteConfig from '../content/site-config.json';
 
@@ -22,7 +21,6 @@ const sections = [
 
 <BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
   <SideNav sections={sections} />
-  <ScrollToggle />
   <Lightbox />
 
   <main class="snap-container snap-disabled">
@@ -49,6 +47,7 @@ const sections = [
           <p>
             The art direction drew from Akira, Ghost in the Shell, and Metal Gear Solid, shaping those influences into a cohesive, fresh visual language.
           </p>
+          <a href="https://www.deepsilver.com/games/metal-eden" target="_blank" rel="noopener noreferrer" class="project-link">Visit Metal Eden Site ↗</a>
         </div>
         <div class="about-project-stats">
           <div class="stat-item">
@@ -77,11 +76,11 @@ const sections = [
         <div class="split-text">
           <h2>My Responsibilities & Scope</h2>
           <ul class="responsibility-list">
-            <li>Contributed to establishing and maintaining the game's art direction</li>
-            <li>Level art production from blockout through final polish</li>
-            <li>Weapon asset creation and ownership of the weapon production pipeline</li>
-            <li>Hard-surface visual direction and production pipeline ownership</li>
-            <li>Performance-aware optimization across maps and content for target platforms</li>
+            <li><strong>Co-defined and maintained</strong> the game's <strong>visual identity</strong>, ensuring stylistic consistency across a <strong>team of 30+ artists</strong>.</li>
+            <li>Personally responsible for <strong>level art production</strong> from <strong>blockout through final polish</strong> across multiple maps.</li>
+            <li>Defined and owned the <strong>weapon production pipeline</strong>, personally delivering weapon assets and <strong>leading the weapons team</strong>.</li>
+            <li>Defined the <strong>hard-surface visual direction</strong>, collaborated with the tech team to build the <strong>production pipeline</strong>, and delivered assets from <strong>concept to final in-game models</strong>.</li>
+            <li><strong>Drove and personally executed</strong> performance <strong>optimization</strong> across all maps and content for target platforms.</li>
           </ul>
         </div>
         <div class="split-video">
@@ -92,12 +91,18 @@ const sections = [
       </div>
     </section>
 
+    <!-- Contributions Header -->
+    <section class="contributions-header">
+      <h2>My Contributions</h2>
+      <p class="contributions-subtitle">The following sections describe my contributions to the project. All presented work was created or led by me.</p>
+    </section>
+
     <!-- Section 3: Environments & Level Art -->
     <section id="environments" class="snap-section section-environments">
       <div class="env-content">
-        <h2>Level Art & Environment Direction</h2>
+        <h2>Level and Environment Art</h2>
         <p class="section-description">
-          Full ownership of level art production from blockout to final polish across multiple levels of the game. Responsible for the overall visual pass, including composition, design, mood, set dressing and detailing, with all decisions driven by gameplay, while guiding the team through consistent feedback.
+          Delivered level art production from <strong>blockout to final polish across multiple maps</strong>. Responsible for the <strong>overall visual pass</strong>, including composition, mood, and set dressing. Every decision was driven by gameplay, while guiding the team through consistent feedback.
         </p>
       </div>
       <div class="env-hero-image">
@@ -123,7 +128,7 @@ const sections = [
       <div class="env-content">
         <h2>Weapon Art</h2>
         <p class="section-description">
-          Weapon asset production and pipeline ownership, balancing visual identity, gameplay readability.
+          Personally created weapon assets, established the weapon production pipeline with the tech team, and led the weapons art team.
         </p>
       </div>
       <div class="env-hero-video">
@@ -143,7 +148,7 @@ const sections = [
       <div class="env-content">
         <h2>3D Art</h2>
         <p class="section-description">
-          Established hard-surface visual direction and production pipelines for the team, while producing production-ready assets from initial concept art through final in-game models.
+          Establish the hard-surface 3D visual direction, delivering assets from concept through final in-game models while establishing the production pipeline with the tech team.
         </p>
       </div>
       <div class="env-hero-image">
@@ -169,9 +174,9 @@ const sections = [
       <div class="env-content">
         <h2>Collaboration & Leadership</h2>
         <ul class="collaboration-list">
-          <li>Provided constant visual feedback and guidance to maintain quality and consistency</li>
-          <li>Collaborated closely with gameplay and tech to align visual direction with gameplay and performance goals</li>
-          <li>Balanced hands-on production with broader leadership responsibilities</li>
+          <li>Provided <strong>constant visual feedback</strong> and guidance to maintain <strong>quality and consistency</strong> across the art team</li>
+          <li><strong>Collaborated closely with gameplay and tech teams</strong> to align visual direction with gameplay and performance targets</li>
+          <li>Balanced <strong>hands-on production</strong> with broader <strong>leadership responsibilities</strong></li>
         </ul>
       </div>
     </section>
@@ -181,17 +186,17 @@ const sections = [
       <div class="section-content">
         <h2>Optimization</h2>
         <p class="section-intro">
-          Visual quality and optimization are treated as inseparable throughout my production workflow.
+          Visual quality and optimization are treated as <strong>inseparable</strong> throughout my production workflow.
         </p>
         <div class="optimization-grid">
           <div class="optimization-card">
-            <p>Implemented aggressive level streaming strategies to support large, model heavy environments</p>
+            <p><strong>Implemented aggressive level streaming strategies</strong> to support large, model heavy environments</p>
           </div>
           <div class="optimization-card">
-            <p>Use of shader-driven materials to reduce texture memory and draw calls</p>
+            <p>Use of <strong>shader-driven materials</strong> to reduce texture memory and draw calls</p>
           </div>
           <div class="optimization-card">
-            <p>Environment kitbashing in engine to maximize asset reuse</p>
+            <p><strong>Environment kitbashing</strong> in engine to maximize asset reuse</p>
           </div>
         </div>
       </div>
@@ -327,6 +332,18 @@ const sections = [
     margin-top: var(--spacing-sm);
   }
 
+  .project-link {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .project-link:hover {
+    color: var(--text-primary);
+  }
+
   .about-project-stats {
     display: flex;
     justify-content: space-around;
@@ -374,6 +391,27 @@ const sections = [
     min-height: auto;
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
+  }
+
+  .contributions-header {
+    background-color: var(--bg-primary);
+    text-align: left;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .contributions-header h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-4xl);
+    text-transform: uppercase;
+  }
+
+  .contributions-subtitle {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
   }
 
   .split-content {

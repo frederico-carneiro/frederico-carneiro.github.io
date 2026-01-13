@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SideNav from '../components/SideNav.astro';
-import ScrollToggle from '../components/ScrollToggle.astro';
 import Lightbox from '../components/Lightbox.astro';
 import siteConfig from '../content/site-config.json';
 
@@ -17,7 +16,6 @@ const sections = [
 
 <BaseLayout title={project.title} description={`Case study for ${project.title} - ${project.roles.join(', ')}`}>
   <SideNav sections={sections} />
-  <ScrollToggle />
   <Lightbox />
 
   <main class="snap-container snap-disabled">
@@ -26,7 +24,7 @@ const sections = [
       <div class="section-content">
         <h1>{project.title}</h1>
         <p class="project-roles">{project.roles.join(' · ')}</p>
-        <p class="nda-notice">NDA-protected work available on request.</p>
+        <p class="nda-notice">This project is under NDA, so assets cannot be publicly displayed. A private walkthrough is available upon request.</p>
       </div>
     </section>
 
@@ -36,7 +34,7 @@ const sections = [
         <div class="about-project-text">
           <h2>About the Project</h2>
           <p>
-            RUINER 2 was a short, focused production of a vertical slice project focused on defining the art direction and delivering three representative maps to establish the game's visual and gameplay foundation.
+            RUINER 2 was a short, focused production of a vertical slice project, centered on defining the art direction and delivering three representative maps to establish the game's visual and gameplay foundation.
           </p>
         </div>
         <div class="about-project-stats">
@@ -66,8 +64,8 @@ const sections = [
         <div class="split-text">
           <h2>My Responsibilities & Scope</h2>
           <ul class="responsibility-list">
-            <li>Co-established the game's art direction and visual language</li>
-            <li>Level art creation for the three main maps in collaboration with the team</li>
+            <li>Established the game's art direction and visual language in collaboration with the Art Director</li>
+            <li>Co-created level art for all the maps alongside the core team</li>
           </ul>
         </div>
       </div>
