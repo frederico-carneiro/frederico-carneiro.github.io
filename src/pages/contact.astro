@@ -45,8 +45,29 @@ const { personal, contact } = siteConfig;
           </a>
         </div>
 
-        <div class="contact-note" data-reveal>
-          <p>Based in <strong>Poland, Warsaw</strong>. Available for remote work worldwide.</p>
+        <div class="contact-details" data-reveal-stagger>
+          <div class="detail-item">
+            <span class="detail-label">Availability</span>
+            <span class="detail-value">Open to new opportunities</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Looking for</span>
+            <span class="detail-value">Art Director, Lead Artist, Senior Artist roles (Environment, Weapon, 3D Art)</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Location</span>
+            <span class="detail-value">Warsaw, Poland (CET) — open to remote</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Response time</span>
+            <span class="detail-value">I typically respond within 24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-cv" data-reveal>
+          <a href="/Frederico-Carneiro-CV-Associate-Art-Director.pdf" target="_blank" rel="noopener noreferrer" class="cv-link">
+            Download CV (PDF) ↓
+          </a>
         </div>
       </div>
     </section>
@@ -169,18 +190,56 @@ const { personal, contact } = siteConfig;
     transform: translateX(4px);
   }
 
-  .contact-note {
-    text-align: center;
+  .contact-details {
+    max-width: 500px;
+    margin: 0 auto var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
 
-  .contact-note p {
-    font-size: var(--font-size-xl);
-    color: var(--text-secondary);
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border);
   }
 
-  .contact-note strong {
-    font-weight: var(--font-weight-bold);
+  .detail-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .detail-value {
+    font-size: var(--font-size-base);
     color: var(--text-primary);
+    text-align: right;
+  }
+
+  .contact-cv {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cv-link {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px 24px;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .cv-link:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
   }
 
   /* Responsive */

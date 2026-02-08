@@ -106,6 +106,7 @@ const { sections } = Astro.props;
   // Intersection Observer to highlight active section
   const dots = document.querySelectorAll('.side-nav-dot');
   const sections = document.querySelectorAll('.snap-section');
+  if (sections.length === 0) return;
 
   const observer = new IntersectionObserver(
     (entries) => {

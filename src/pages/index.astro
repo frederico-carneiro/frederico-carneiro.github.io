@@ -20,7 +20,8 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>{personal.name}</h1>
-        <p class="hero-title">Art Director | Environment, Level & Weapon Art</p>
+        <p class="hero-title">Associate Art Director | Lead & Senior Artist</p>
+        <p class="hero-specialization">Environment, Weapons & 3D</p>
         <p class="hero-statement">{personal.statement}</p>
         <div class="hero-cta">
           <a href="#work" class="btn btn-primary">View Work</a>
@@ -62,7 +63,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     <!-- Expertise Section -->
     <section class="section expertise-section">
       <div class="expertise-bg">
-        <img src="/images/metal-eden/expertise-bg.webp" alt="" loading="lazy" />
+        <img src="/images/metal-eden/expertise-bg.webp" alt="" loading="lazy" width="3840" height="1600" />
       </div>
       <div class="expertise-overlay"></div>
       <div class="container container--narrow">
@@ -81,7 +82,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     <!-- Short About Section -->
     <section class="section about-section">
       <div class="about-bg">
-        <img src="/images/metal-eden/about-bg.webp" alt="" loading="lazy" />
+        <img src="/images/metal-eden/about-bg.webp" alt="" loading="lazy" width="3840" height="1600" />
       </div>
       <div class="about-overlay"></div>
       <div class="container container--narrow about-preview">
@@ -101,7 +102,7 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
       <div class="contact-bg">
-        <img src="/images/metal-eden/footer-bg.webp" alt="" loading="lazy" />
+        <img src="/images/metal-eden/footer-bg.webp" alt="" loading="lazy" width="3840" height="1600" />
       </div>
       <div class="contact-overlay"></div>
       <div class="container container--narrow">
@@ -208,10 +209,20 @@ const { personal, contact, expertise, tools, projects } = siteConfig;
   .hero-title {
     font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
     color: var(--text-primary);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 0;
     font-weight: var(--font-weight-normal);
     opacity: 0;
     animation: heroFadeIn 0.8s ease-out 0.5s forwards;
+  }
+
+  .hero-specialization {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    letter-spacing: 0.05em;
+    margin-top: -6px;
+    margin-bottom: var(--spacing-lg);
+    animation: heroFadeIn 0.8s ease-out 0.7s forwards;
   }
 
   .hero-statement {

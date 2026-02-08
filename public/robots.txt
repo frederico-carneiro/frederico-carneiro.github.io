@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /ruiner-2
+
+Sitemap: https://frederico-carneiro.github.io/sitemap-index.xml

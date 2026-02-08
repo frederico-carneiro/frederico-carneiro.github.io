@@ -1,4 +1,5 @@
 ---
+import '../styles/fonts.css';
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
@@ -20,7 +21,7 @@ const {
   hideFooter = false,
 } = Astro.props;
 
-const siteTitle = "Frederico Carneiro | Art Director & Lead Artist";
+const siteTitle = "Frederico Carneiro | Associate Art Director | Lead & Senior Artist";
 const fullTitle = title === "Home" ? siteTitle : `${title} | Frederico Carneiro`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -56,10 +57,34 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <!-- Fonts - Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <!-- Fonts - Self-hosted for performance -->
+    <link rel="preload" href="/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Frederico Carneiro",
+      "jobTitle": "Associate Art Director",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Reikon Games"
+      },
+      "url": "https://frederico-carneiro.github.io/",
+      "sameAs": [
+        "https://www.artstation.com/kiko_main",
+        "https://www.linkedin.com/in/frederico-carneiro-05058294/"
+      ],
+      "knowsAbout": ["Art Direction", "Environment Art", "Weapon Art", "3D Art", "Unreal Engine 5"],
+      "description": "Associate Art Director and Lead & Senior Artist with 7+ years of experience, specializing in Environment, Weapons and 3D Art."
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Frederico Carneiro Portfolio",
+      "url": "https://frederico-carneiro.github.io/"
+    })} />
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#0E0F11" />

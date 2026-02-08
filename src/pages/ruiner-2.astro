@@ -23,13 +23,15 @@ const sections = [
     <!-- Section 1: Overview / Hero -->
     <section id="overview" class="snap-section section-hero">
       <div class="section-bg">
-        <img src="/images/ruiner-2/hero-bg.webp" alt="RUINER 2 environment" loading="eager" />
+        <img src="/images/ruiner-2/hero-bg.webp" alt="RUINER 2 environment" loading="eager" width="1920" height="1080" />
       </div>
       <div class="section-overlay"></div>
       <div class="section-content">
         <h1>{project.title}</h1>
-        <p class="project-roles">{project.roles.join(' · ')}</p>
-        <p class="nda-notice">This project is under NDA, so assets cannot be publicly displayed. A private walkthrough is available upon request.</p>
+        <p class="project-roles">Associate Art Director | Lead & Senior Artist</p>
+        <p class="project-specialization">Environment, Weapons & 3D</p>
+        <p class="nda-notice">This project is under NDA, so assets cannot be publicly displayed.</p>
+        <a href="mailto:frederico.rcarneiro@gmail.com?subject=RUINER%202%20%E2%80%93%20Portfolio%20Access%20Request" class="btn btn-primary nda-cta">Request Full Portfolio via Email</a>
       </div>
     </section>
 
@@ -66,18 +68,36 @@ const sections = [
     <!-- Section 3: Responsibilities & Leadership -->
     <section id="responsibilities" class="snap-section section-split section-with-bg">
       <div class="section-bg">
-        <img src="/images/ruiner-2/responsibilities-hero.webp" alt="RUINER 2 characters" loading="lazy" />
+        <img src="/images/ruiner-2/responsibilities-hero.webp" alt="RUINER 2 characters" loading="lazy" width="1919" height="825" />
       </div>
       <div class="section-overlay"></div>
       <div class="split-content split-content-centered">
         <div class="split-text" data-reveal>
           <h2>My Responsibilities & Scope</h2>
           <ul class="responsibility-list" data-reveal-stagger>
-            <li>Established the game's art direction and visual language in collaboration with the Art Director</li>
-            <li>Co-created level art for all the maps alongside the core team</li>
+            <li>Co-defined the game's <strong>art direction and visual language</strong> with the Art Director</li>
+            <li>Co-created <strong>level and environment art</strong> across all maps</li>
+            <li>Created <strong>main city hub level design</strong>, shaping composition and gameplay flow</li>
+            <li>Established <strong>environment shader workflows</strong> and authored key shaders (water, fog, ground fog)</li>
+            <li>Delivered <strong>VFX and interactive animations</strong> supporting combat, environment, and gameplay feedback</li>
           </ul>
         </div>
       </div>
+    </section>
+
+    <!-- Section 4: Challenges & Approach -->
+    <section class="snap-section section-challenges">
+      <div class="challenges-content" data-reveal>
+        <h2>Challenges</h2>
+        <p>A key challenge was preserving the distinct art direction and atmosphere of RUINER, a project with a very strong visual identity — while translating it into Unreal Engine 5 with higher visual fidelity, without losing its original soul.</p>
+        <p>Another major constraint was the timeline and small team size. The project was developed by a minimal core team, requiring an efficient and highly focused production approach.</p>
+        <p>To address this, we relied on a <strong>shader-driven environment workflow</strong>, building most of the environments directly in UE5 using <strong>kitbashing and reusable assets</strong>. This minimized texture production and reduced dependency on external tools, allowing for faster iteration and consistent results under tight constraints.</p>
+      </div>
+    </section>
+
+    <section class="gallery-cta" data-reveal>
+      <p class="gallery-cta-text">Want to see more?</p>
+      <a href="/gallery" class="btn btn-primary">View Full Gallery</a>
     </section>
 
     <NextProject
@@ -85,8 +105,7 @@ const sections = [
       href="/metal-eden"
       image="/images/metal-eden/hero-main.webp"
     />
-
-      </main>
+  </main>
 </BaseLayout>
 
 <style>
@@ -201,11 +220,20 @@ const sections = [
     font-size: var(--font-size-lg);
     color: var(--text-primary);
     opacity: 0;
+    margin-bottom: 0;
     animation: heroFadeIn 0.8s ease-out 0.5s forwards;
   }
 
+  .project-specialization {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: -6px;
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.7s forwards;
+  }
+
   .nda-notice {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: #AFC6D9;
     margin-top: var(--spacing-lg);
@@ -213,9 +241,15 @@ const sections = [
     animation: heroFadeIn 0.8s ease-out 0.8s forwards;
   }
 
+  .nda-cta {
+    margin-top: var(--spacing-md);
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 1.1s forwards;
+  }
+
   /* Section About Project */
   .section-about-project {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     min-height: auto;
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
@@ -260,7 +294,7 @@ const sections = [
   .stat-value {
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 1.2;
@@ -294,7 +328,7 @@ const sections = [
 
   /* Section Split */
   .section-split {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     min-height: auto;
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
@@ -349,14 +383,6 @@ const sections = [
     display: inline-block;
   }
 
-  .split-content-centered .responsibility-list li::before {
-    display: none;
-  }
-
-  .split-content-centered .responsibility-list li {
-    padding-left: 0;
-  }
-
   .split-text h2 {
     margin-bottom: var(--spacing-md);
   }
@@ -364,7 +390,7 @@ const sections = [
   .responsibility-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
   }
 
   .responsibility-list li {
@@ -375,13 +401,15 @@ const sections = [
   }
 
   .responsibility-list li::before {
-    content: '';
+    content: '–';
     position: absolute;
     left: 0;
-    top: 0.6em;
-    width: 8px;
-    height: 2px;
-    background-color: var(--text-muted);
+    top: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: var(--text-muted);
+    font-size: var(--font-size-lg);
   }
 
   .split-image {
@@ -682,6 +710,13 @@ const sections = [
     background-color: var(--bg-secondary);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
+    border-top: 2px solid var(--accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .optimization-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(107, 159, 207, 0.1);
   }
 
   .optimization-card h3 {
@@ -754,6 +789,46 @@ const sections = [
   .credits-reflection p {
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
+  }
+
+  /* Section Challenges */
+  .section-challenges {
+    background-color: var(--bg-secondary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .challenges-content {
+    max-width: var(--max-width);
+    width: 100%;
+  }
+
+  .challenges-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .challenges-content p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .challenges-content p + p {
+    margin-top: var(--spacing-sm);
+  }
+
+  /* Gallery CTA */
+  .gallery-cta {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--bg-primary);
+  }
+
+  .gallery-cta-text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
   }
 
   /* Reduced motion */

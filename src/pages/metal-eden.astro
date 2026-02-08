@@ -28,12 +28,13 @@ const sections = [
     <!-- Section 1: Overview / Hero -->
     <section id="overview" class="snap-section section-hero">
       <div class="section-bg">
-        <img src="/images/metal-eden/hero-main.webp" alt="METAL EDEN overview" loading="eager" />
+        <img src="/images/metal-eden/hero-main.webp" alt="METAL EDEN overview" loading="eager" width="3840" height="1600" />
       </div>
       <div class="section-overlay"></div>
       <div class="section-content">
         <h1>{project.title}</h1>
-        <p class="project-roles">Art Director | Environment, Level & Weapon Art</p>
+        <p class="project-roles">Associate Art Director | Lead & Senior Artist</p>
+        <p class="project-specialization">Environment, Weapons & 3D</p>
       </div>
     </section>
 
@@ -92,6 +93,16 @@ const sections = [
       </div>
     </section>
 
+    <!-- Section: Challenges -->
+    <section class="snap-section section-challenges">
+      <div class="challenges-content" data-reveal>
+        <h2>Challenges</h2>
+        <p>One of the main challenges was <strong>rapidly scaling the team from around 30 to over 120 developers</strong> during active production. This introduced pipeline, communication, and coordination challenges that required <strong>constant iteration and refinement of workflows</strong> to keep production efficient and aligned.</p>
+        <p>Another key challenge was the project's highly specific <strong>industrial hard-surface sci-fi art style</strong>, which is relatively uncommon. Finding artists already fluent in this visual language was difficult, so a major focus was on <strong>guiding artists into the style</strong>, establishing clear standards, and designing workflows that reduced friction and inconsistency while maintaining <strong>visual coherence</strong> across the project.</p>
+        <p>Finally, <strong>performance was a critical concern</strong>. The game featured dense geometry, large numbers of assets on screen, and very fast player movement, requiring <strong>aggressive environment and level optimization</strong>, particularly for consoles and lower-end PCs. This demanded close collaboration and careful trade-offs to achieve visual quality while meeting performance targets.</p>
+      </div>
+    </section>
+
     <!-- Contributions Header -->
     <section class="contributions-header" data-reveal>
       <h2>My Contributions</h2>
@@ -107,20 +118,38 @@ const sections = [
         </p>
       </div>
       <div class="env-hero-image" data-reveal>
-        <img src="/images/metal-eden/env-hero.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+        <div class="image-attributed">
+          <img src="/images/metal-eden/env-hero.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" width="3840" height="1600" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Level Art</span>
+            <span class="attribution-desc">Composition, lighting, mood, color and final detail pass.</span>
+          </div>
+        </div>
       </div>
       <div class="env-image-row" data-reveal-stagger>
-        <div class="env-image-half">
-          <img src="/images/metal-eden/env-left.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+        <div class="env-image-half image-attributed">
+          <img src="/images/metal-eden/env-left.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" width="3840" height="1600" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Level Art</span>
+            <span class="attribution-desc">Composition, lighting, mood, color and final detail pass.</span>
+          </div>
         </div>
-        <div class="env-image-half">
-          <img src="/images/metal-eden/env-right.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
+        <div class="env-image-half image-attributed">
+          <img src="/images/metal-eden/env-right.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" width="3840" height="1600" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Level Art</span>
+            <span class="attribution-desc">Composition, lighting, mood, color and final detail pass.</span>
+          </div>
         </div>
       </div>
       <div class="env-archive-link">
         <a href="https://www.artstation.com/kiko_main" target="_blank" rel="noopener noreferrer">
           Full Environment and Level Art available on ArtStation →
         </a>
+      </div>
+      <div class="inline-cta" data-reveal>
+        <span>Interested in working together?</span>
+        <a href="/contact">Get in Touch →</a>
       </div>
     </section>
 
@@ -133,9 +162,15 @@ const sections = [
         </p>
       </div>
       <div class="env-hero-video">
-        <video autoplay loop muted playsinline>
-          <source src="/images/metal-eden/weapons-hero.mp4" type="video/mp4" />
-        </video>
+        <div class="image-attributed">
+          <video autoplay loop muted playsinline>
+            <source src="/images/metal-eden/weapons-hero.mp4" type="video/mp4" />
+          </video>
+          <div class="attribution-badge">
+            <span class="attribution-title">Weapon & FPP Arms</span>
+            <span class="attribution-desc">Full mid-poly in-game model for weapon and FPP arms, from blockout to textures.</span>
+          </div>
+        </div>
       </div>
       <div class="env-archive-link">
         <a href="https://www.artstation.com/kiko_main" target="_blank" rel="noopener noreferrer">
@@ -153,14 +188,28 @@ const sections = [
         </p>
       </div>
       <div class="env-hero-image" data-reveal>
-        <img src="/images/metal-eden/props-hero.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+        <div class="image-attributed">
+          <img src="/images/metal-eden/props-hero.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" width="3840" height="1845" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Concept and 3D Art</span>
+            <span class="attribution-desc">Fully created assets from concept to 3D in-game model.</span>
+          </div>
+        </div>
       </div>
       <div class="env-image-row" data-reveal-stagger>
-        <div class="env-image-half">
-          <img src="/images/metal-eden/props-left.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+        <div class="env-image-half image-attributed">
+          <img src="/images/metal-eden/props-left.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" width="3840" height="1845" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Concept and 3D Art</span>
+            <span class="attribution-desc">Fully created assets from concept to 3D in-game model.</span>
+          </div>
         </div>
-        <div class="env-image-half">
-          <img src="/images/metal-eden/props-right.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" />
+        <div class="env-image-half image-attributed">
+          <img src="/images/metal-eden/props-right.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" width="3840" height="1845" />
+          <div class="attribution-badge">
+            <span class="attribution-title">Concept and 3D Art</span>
+            <span class="attribution-desc">Fully created assets from concept to 3D in-game model.</span>
+          </div>
         </div>
       </div>
       <div class="env-archive-link">
@@ -201,6 +250,70 @@ const sections = [
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Accolades -->
+    <section class="accolades-section">
+      <div class="accolades-bg">
+        <img src="/images/metal-eden/accolades-bg.webp" alt="" loading="lazy" width="1920" height="1080" />
+      </div>
+      <div class="accolades-overlay"></div>
+      <h2 class="accolades-title" data-reveal>METAL EDEN</h2>
+      <div class="accolades-content" data-reveal-stagger>
+        <div class="accolade">
+          <p class="accolade-quote">"Visually impressive."</p>
+          <span class="accolade-source">TechRadar</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Absolutely gorgeous to look at."</p>
+          <span class="accolade-source">TechRadar</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Dazzling presentation."</p>
+          <span class="accolade-source">Niche Gamer</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Looks amazing."</p>
+          <span class="accolade-source">Niche Gamer</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Impressive visuals and art direction."</p>
+          <span class="accolade-source">Niche Gamer</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"A lot to appreciate about the art direction."</p>
+          <span class="accolade-source">GamingBolt</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Genuinely stunning vibe."</p>
+          <span class="accolade-source">GamingBolt</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Enemy and gun designs stand out."</p>
+          <span class="accolade-source">VGChartz</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"The art team deserves full praise."</p>
+          <span class="accolade-source">G Style Magazine</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"Environments drip with detail."</p>
+          <span class="accolade-source">G Style Magazine</span>
+        </div>
+        <div class="accolade">
+          <p class="accolade-quote">"One of the better looking games this year."</p>
+          <span class="accolade-source">DLH.net</span>
+        </div>
+      </div>
+      <div class="inline-cta inline-cta--light" data-reveal>
+        <span>Interested in working together?</span>
+        <a href="/contact">Get in Touch →</a>
+      </div>
+    </section>
+
+    <section class="gallery-cta" data-reveal>
+      <p class="gallery-cta-text">Want to see more?</p>
+      <a href="/gallery" class="btn btn-primary">View Full Gallery</a>
     </section>
 
     <NextProject
@@ -328,6 +441,15 @@ const sections = [
     font-size: var(--font-size-lg);
     color: var(--text-primary);
     opacity: 0.9;
+    margin-bottom: 0;
+  }
+
+  .project-specialization {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: -6px;
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.7s forwards;
   }
 
   /* Section About Project */
@@ -389,7 +511,7 @@ const sections = [
   .stat-value {
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 1.2;
@@ -430,22 +552,24 @@ const sections = [
   }
 
   .contributions-header {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     text-align: left;
     padding: var(--spacing-xl) var(--spacing-lg);
-    max-width: var(--max-width);
-    margin: 0 auto;
   }
 
   .contributions-header h2 {
-    margin: 0;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
     color: var(--text-primary);
     font-size: var(--font-size-4xl);
     text-transform: uppercase;
   }
 
   .contributions-subtitle {
-    margin-top: var(--spacing-sm);
+    max-width: var(--max-width);
+    width: 100%;
+    margin: var(--spacing-sm) auto 0;
     font-size: var(--font-size-base);
     color: var(--text-secondary);
   }
@@ -771,6 +895,13 @@ const sections = [
     background-color: var(--bg-secondary);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
+    border-top: 2px solid var(--accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .optimization-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(107, 159, 207, 0.1);
   }
 
   .optimization-card h3 {
@@ -843,6 +974,244 @@ const sections = [
   .credits-reflection p {
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
+  }
+
+  /* Alternating backgrounds for contribution sections */
+  #environments {
+    background-color: var(--bg-primary);
+  }
+
+  #weapons {
+    background-color: var(--bg-secondary);
+  }
+
+  #props {
+    background-color: var(--bg-primary);
+  }
+
+  #collaboration {
+    background-color: var(--bg-secondary);
+  }
+
+  /* Section Challenges */
+  .section-challenges {
+    background-color: var(--bg-primary);
+    min-height: auto;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .challenges-content {
+    max-width: var(--max-width);
+    width: 100%;
+  }
+
+  .challenges-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .challenges-content p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .challenges-content p + p {
+    margin-top: var(--spacing-sm);
+  }
+
+  /* Attribution Badges */
+  .image-attributed {
+    position: relative;
+  }
+
+  .image-attributed img,
+  .image-attributed video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .attribution-badge {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: calc(2vw + 100px);
+    background: rgba(14, 15, 17, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-attributed:hover .attribution-badge {
+    opacity: 1;
+  }
+
+  .attribution-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+  }
+
+  .attribution-desc {
+    font-size: var(--font-size-xs, 0.75rem);
+    color: var(--text-muted);
+  }
+
+  .env-image-half .attribution-badge {
+    left: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .attribution-badge {
+      opacity: 1;
+      left: var(--spacing-sm);
+    }
+  }
+
+  /* Accolades */
+  .accolades-section {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .accolades-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .accolades-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(4px) saturate(0.6);
+    transform: scale(1.05);
+  }
+
+  .accolades-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(14, 15, 17, 0.75);
+  }
+
+  .accolades-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .accolades-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg) var(--spacing-xl);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .accolade {
+    text-align: center;
+    flex: 0 1 auto;
+    min-width: 180px;
+    max-width: 260px;
+  }
+
+  .accolade-quote {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .accolade-source {
+    font-size: var(--font-size-xs, 0.75rem);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 768px) {
+    .accolades-content {
+      gap: var(--spacing-md);
+    }
+
+    .accolade {
+      min-width: 140px;
+      max-width: 200px;
+    }
+
+    .accolade-quote {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .accolades-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .accolade {
+      max-width: 100%;
+    }
+  }
+
+  /* Inline CTA */
+  .inline-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) 0;
+    font-size: var(--font-size-sm);
+  }
+
+  .inline-cta span {
+    color: var(--text-muted);
+  }
+
+  .inline-cta a {
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+  }
+
+  .inline-cta a:hover {
+    color: var(--text-primary);
+  }
+
+  .inline-cta--light {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Gallery CTA */
+  .gallery-cta {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--bg-secondary);
+  }
+
+  .gallery-cta-text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
   }
 
   /* Reduced motion */
