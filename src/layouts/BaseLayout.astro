@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -62,6 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#0E0F11" />
+
+    <!-- Page Transitions -->
+    <ViewTransitions />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -70,6 +74,62 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </div>
     {!hideFooter && <Footer />}
+
+    <!-- Scroll Reveal & Counters -->
+    <script>
+      function initAnimations() {
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach((el) => {
+          el.classList.remove('revealed');
+          observer.observe(el);
+        });
+
+        // Stats counter animation
+        const countObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const target = parseInt(el.dataset.countTo!, 10);
+              const suffix = el.dataset.countSuffix || '';
+              const duration = 1500;
+              const start = performance.now();
+
+              function update(now: number) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+                el.textContent = current + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+              }
+
+              el.textContent = '0' + suffix;
+              requestAnimationFrame(update);
+              countObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count-to]').forEach((el) => {
+          countObserver.observe(el);
+        });
+      }
+
+      // Run on initial load and after View Transitions
+      document.addEventListener('astro:page-load', initAnimations);
+    </script>
 
     <!-- GoatCounter Analytics -->
     <script data-goatcounter="https://fredericocarneiro.goatcounter.com/count"

@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  image: string;
+}
+
+const { title, href, image } = Astro.props;
+---
+
+<section class="next-project">
+  <a href={href} class="next-project-link">
+    <div class="next-bg">
+      <img src={image} alt={`${title} preview`} loading="lazy" />
+    </div>
+    <div class="next-overlay"></div>
+    <div class="next-content" data-reveal>
+      <span class="next-label">Next Project</span>
+      <h2 class="next-title">{title}</h2>
+      <span class="next-arrow" aria-hidden="true">&rarr;</span>
+    </div>
+  </a>
+</section>
+
+<style>
+  .next-project {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .next-project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    min-height: 320px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .next-project-link:hover {
+    color: inherit;
+  }
+
+  .next-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .next-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .next-project:hover .next-bg img {
+    transform: scale(1.05);
+  }
+
+  .next-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 15, 17, 0.7);
+    transition: background 0.4s ease;
+  }
+
+  .next-project:hover .next-overlay {
+    background: rgba(14, 15, 17, 0.55);
+  }
+
+  .next-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .next-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .next-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .next-arrow {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .next-project:hover .next-arrow {
+    transform: translateX(6px);
+    color: var(--text-primary);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .next-bg img,
+    .next-overlay,
+    .next-arrow {
+      transition: none;
+    }
+
+    .next-project:hover .next-bg img {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .next-project-link {
+      min-height: 220px;
+    }
+  }
+</style>

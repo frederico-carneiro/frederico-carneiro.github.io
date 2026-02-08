@@ -9,14 +9,14 @@ const { personal, contact } = siteConfig;
   <main class="contact-page">
     <section class="section">
       <div class="container container--narrow">
-        <div class="contact-header">
+        <div class="contact-header" data-reveal>
           <h1>Get in Touch</h1>
           <p class="contact-intro">
             Open to discussing new opportunities, collaborations, or just talking shop about game art and production.
           </p>
         </div>
 
-        <div class="contact-links">
+        <div class="contact-links" data-reveal-stagger>
           <a href={`mailto:${contact.email}`} class="contact-card">
             <div class="contact-icon" data-icon="email"></div>
             <div class="contact-info">
@@ -45,7 +45,7 @@ const { personal, contact } = siteConfig;
           </a>
         </div>
 
-        <div class="contact-note">
+        <div class="contact-note" data-reveal>
           <p>Based in <strong>Poland, Warsaw</strong>. Available for remote work worldwide.</p>
         </div>
       </div>

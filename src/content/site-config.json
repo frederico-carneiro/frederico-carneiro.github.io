@@ -34,30 +34,26 @@
     "metalEden": {
       "title": "METAL EDEN",
       "studio": "REIKON GAMES",
-      "platform": "ADD PLATFORM (e.g., PC / Console)",
-      "status": "Shipped (e.g., In Development / Shipped)",
+      "platform": "PC",
+      "status": "In Development",
       "roles": [
         "Associate Art Director",
         "Lead Weapon Artist",
         "3D Art Lead"
       ],
-      "description": "ADD SHORT PROJECT DESCRIPTION",
-      "trailerUrl": "ADD TRAILER URL (YouTube/Vimeo)",
-      "credits": "ADD LINK TO OFFICIAL CREDITS (if available)"
+      "description": "AA sci-fi FPS developed by Reikon Games in Unreal Engine 5, featuring dense, high-velocity combat spaces with a visual language inspired by Akira, Ghost in the Shell, and Metal Gear Solid."
     },
     "ruiner2": {
       "title": "RUINER 2 - Vertical Slice",
-      "studio": "ADD STUDIO NAME",
-      "platform": "ADD PLATFORM",
-      "status": "ADD STATUS",
+      "studio": "REIKON GAMES",
+      "platform": "PC",
+      "status": "Vertical Slice",
       "roles": [
         "Associate Art Director",
         "Level Art",
         "Environment Art"
       ],
-      "description": "ADD SHORT PROJECT DESCRIPTION",
-      "trailerUrl": "ADD TRAILER URL",
-      "credits": "ADD LINK TO OFFICIAL CREDITS"
+      "description": "Project under NDA. Portfolio of Frederico Carneiro - Art Director and Senior Artist with 7+ years of experience."
     }
   }
 }

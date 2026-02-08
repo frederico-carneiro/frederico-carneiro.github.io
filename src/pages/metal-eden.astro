@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SideNav from '../components/SideNav.astro';
 import Lightbox from '../components/Lightbox.astro';
+import NextProject from '../components/NextProject.astro';
 import siteConfig from '../content/site-config.json';
 
 const { projects } = siteConfig;
@@ -39,7 +40,7 @@ const sections = [
     <!-- Section 2: About the Project -->
     <section id="about-project" class="snap-section section-about-project">
       <div class="about-project-content">
-        <div class="about-project-text">
+        <div class="about-project-text" data-reveal>
           <h2>About the Project</h2>
           <p>
             METAL EDEN is a AA sci-fi FPS developed by Reikon Games in Unreal Engine 5, requiring strong visual readability and cohesion across dense, high-velocity combat spaces.
@@ -49,17 +50,17 @@ const sections = [
           </p>
           <a href="https://www.deepsilver.com/games/metal-eden" target="_blank" rel="noopener noreferrer" class="project-link">Visit Metal Eden Site ↗</a>
         </div>
-        <div class="about-project-stats">
+        <div class="about-project-stats" data-reveal-stagger>
           <div class="stat-item">
-            <span class="stat-value">3+ Years</span>
+            <span class="stat-value" data-count-to="3" data-count-suffix="+ Years">3+ Years</span>
             <span class="stat-label">In Production</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value">120+ Developers</span>
+            <span class="stat-value" data-count-to="120" data-count-suffix="+ Developers">120+ Developers</span>
             <span class="stat-label">Total Team Size</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value">30+ Artists</span>
+            <span class="stat-value" data-count-to="30" data-count-suffix="+ Artists">30+ Artists</span>
             <span class="stat-label">Art Team</span>
           </div>
           <div class="stat-item">
@@ -73,9 +74,9 @@ const sections = [
     <!-- Section 3: Responsibilities & Leadership -->
     <section id="responsibilities" class="snap-section section-split">
       <div class="split-content">
-        <div class="split-text">
+        <div class="split-text" data-reveal>
           <h2>My Responsibilities & Scope</h2>
-          <ul class="responsibility-list">
+          <ul class="responsibility-list" data-reveal-stagger>
             <li><strong>Co-defined and maintained</strong> the game's <strong>visual identity</strong>, ensuring stylistic consistency across a <strong>team of 30+ artists</strong>.</li>
             <li>Personally responsible for <strong>level art production</strong> from <strong>blockout through final polish</strong> across multiple maps.</li>
             <li>Defined and owned the <strong>weapon production pipeline</strong>, personally delivering weapon assets and <strong>leading the weapons team</strong>.</li>
@@ -92,23 +93,23 @@ const sections = [
     </section>
 
     <!-- Contributions Header -->
-    <section class="contributions-header">
+    <section class="contributions-header" data-reveal>
       <h2>My Contributions</h2>
       <p class="contributions-subtitle">The following sections describe my contributions to the project. All presented work was created or led by me.</p>
     </section>
 
     <!-- Section 3: Environments & Level Art -->
     <section id="environments" class="snap-section section-environments">
-      <div class="env-content">
+      <div class="env-content" data-reveal>
         <h2>Level and Environment Art</h2>
         <p class="section-description">
           Delivered level art production from <strong>blockout to final polish across multiple maps</strong>. Responsible for the <strong>overall visual pass</strong>, including composition, mood, and set dressing. Every decision was driven by gameplay, while guiding the team through consistent feedback.
         </p>
       </div>
-      <div class="env-hero-image">
+      <div class="env-hero-image" data-reveal>
         <img src="/images/metal-eden/env-hero.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
       </div>
-      <div class="env-image-row">
+      <div class="env-image-row" data-reveal-stagger>
         <div class="env-image-half">
           <img src="/images/metal-eden/env-left.webp" alt="METAL EDEN environment" loading="lazy" class="zoomable" />
         </div>
@@ -125,7 +126,7 @@ const sections = [
 
     <!-- Section 4: Weapons -->
     <section id="weapons" class="snap-section section-environments">
-      <div class="env-content">
+      <div class="env-content" data-reveal>
         <h2>Weapon Art</h2>
         <p class="section-description">
           Personally created weapon assets, established the weapon production pipeline with the tech team, and led the weapons art team.
@@ -145,16 +146,16 @@ const sections = [
 
     <!-- Section 5: Props & Modular Kits -->
     <section id="props" class="snap-section section-environments">
-      <div class="env-content">
+      <div class="env-content" data-reveal>
         <h2>3D Art</h2>
         <p class="section-description">
           Establish the hard-surface 3D visual direction, delivering assets from concept through final in-game models while establishing the production pipeline with the tech team.
         </p>
       </div>
-      <div class="env-hero-image">
+      <div class="env-hero-image" data-reveal>
         <img src="/images/metal-eden/props-hero.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" />
       </div>
-      <div class="env-image-row">
+      <div class="env-image-row" data-reveal-stagger>
         <div class="env-image-half">
           <img src="/images/metal-eden/props-left.webp" alt="METAL EDEN props" loading="lazy" class="zoomable" />
         </div>
@@ -171,9 +172,9 @@ const sections = [
 
     <!-- Section 6: Collaboration & Leadership -->
     <section id="collaboration" class="snap-section section-environments section-compact">
-      <div class="env-content">
+      <div class="env-content" data-reveal>
         <h2>Collaboration & Leadership</h2>
-        <ul class="collaboration-list">
+        <ul class="collaboration-list" data-reveal-stagger>
           <li>Provided <strong>constant visual feedback</strong> and guidance to maintain <strong>quality and consistency</strong> across the art team</li>
           <li><strong>Collaborated closely with gameplay and tech teams</strong> to align visual direction with gameplay and performance targets</li>
           <li>Balanced <strong>hands-on production</strong> with broader <strong>leadership responsibilities</strong></li>
@@ -184,11 +185,11 @@ const sections = [
     <!-- Section 7: Optimization -->
     <section id="optimization" class="snap-section section-optimization">
       <div class="section-content">
-        <h2>Optimization</h2>
-        <p class="section-intro">
+        <h2 data-reveal>Optimization</h2>
+        <p class="section-intro" data-reveal>
           Visual quality and optimization are treated as <strong>inseparable</strong> throughout my production workflow.
         </p>
-        <div class="optimization-grid">
+        <div class="optimization-grid" data-reveal-stagger>
           <div class="optimization-card">
             <p><strong>Implemented aggressive level streaming strategies</strong> to support large, model heavy environments</p>
           </div>
@@ -201,6 +202,12 @@ const sections = [
         </div>
       </div>
     </section>
+
+    <NextProject
+      title="RUINER 2 - Vertical Slice"
+      href="/ruiner-2"
+      image="/images/ruiner-2/hero-bg.webp"
+    />
 
   </main>
 </BaseLayout>
@@ -255,12 +262,24 @@ const sections = [
     position: absolute;
     inset: 0;
     z-index: -2;
+    overflow: hidden;
   }
 
   .section-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    animation: kenBurns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+
+  @keyframes heroFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   .section-overlay {
@@ -270,7 +289,7 @@ const sections = [
     background: linear-gradient(
       to bottom,
       rgba(14, 15, 17, 0.6) 0%,
-      rgba(14, 15, 17, 0.4) 50%,
+      rgba(14, 15, 17, 0.35) 50%,
       rgba(14, 15, 17, 0.8) 100%
     );
   }
@@ -278,6 +297,16 @@ const sections = [
   .section-content {
     max-width: var(--content-width);
     width: 100%;
+  }
+
+  .section-hero h1 {
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.2s forwards;
+  }
+
+  .project-roles {
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.5s forwards;
   }
 
   .project-label {

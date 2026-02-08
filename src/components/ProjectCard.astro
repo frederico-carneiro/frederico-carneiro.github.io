@@ -14,197 +14,160 @@ const { title, roles, image, href, featured = false, trailerUrl, description, ke
 ---
 
 <article class:list={['project-card', { featured }]}>
-  <div class="project-info">
-    <h3 class="project-title">{title}</h3>
-    {description && <p class="project-description">{description}</p>}
-    <div class="project-details">
-      <div class="detail-group">
-        <span class="detail-label">Roles</span>
-        <p class="detail-content">{roles.join(' · ')}</p>
-      </div>
-      {keyContributions && (
-        <div class="detail-group">
-          <span class="detail-label">Key Contributions</span>
-          <p class="detail-content">{keyContributions.join(' · ')}</p>
-        </div>
-      )}
+  <a href={href} class="card-link">
+    <div class="card-image">
+      <img src={image} alt={`${title} project thumbnail`} loading="lazy" />
     </div>
-  </div>
-  <div class="project-image">
-    <img src={image} alt={`${title} project thumbnail`} loading="lazy" />
-    <div class="project-overlay">
-      <div class="overlay-buttons">
-        {trailerUrl && (
-          <a href={trailerUrl} class="view-cta" target="_blank" rel="noopener noreferrer">
-            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            Game trailer
-          </a>
-        )}
-        <a href={href} class="view-cta">More..</a>
-      </div>
+    <div class="card-gradient"></div>
+    <div class="card-content">
+      <h3 class="card-title">{title}</h3>
+      <p class="card-roles">{roles.join(' · ')}</p>
+      {description && <p class="card-description">{description}</p>}
     </div>
-  </div>
+    <div class="card-cta">
+      <span class="cta-label">View Case Study <span aria-hidden="true">&rarr;</span></span>
+    </div>
+  </a>
 </article>
 
 <style>
   .project-card {
     position: relative;
-  }
-
-  .project-info {
-    margin-bottom: 2.25rem; /* 36px - significant gap before image */
-  }
-
-  .project-title {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.5rem; /* 8px - tight, description belongs to title */
-    transition: color var(--transition-fast);
-  }
-
-  .project-card:hover .project-title {
-    color: var(--accent);
-  }
-
-  .project-description {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    opacity: 0.75;
-    margin-bottom: 1.5rem; /* 24px - breathing room before roles section */
-  }
-
-  .project-details {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .detail-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem; /* 6px - label introduces its content */
-  }
-
-  .detail-label {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-  }
-
-  .detail-content {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.01em;
-    line-height: var(--line-height-relaxed);
-  }
-
-  .project-image {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 0;
-    background-color: var(--bg-secondary);
-    /* Break out of container to full width */
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    background-color: var(--bg-secondary);
   }
 
-  .project-image img {
+  .card-link {
+    display: block;
+    position: relative;
+    aspect-ratio: 21 / 9;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-link:hover {
+    color: inherit;
+  }
+
+  .card-image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    transition: transform 0.6s ease;
   }
 
-  .project-card:hover .project-image img {
+  .project-card:hover .card-image img {
     transform: scale(1.03);
   }
 
-  .project-overlay {
+  .card-gradient {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(14, 15, 17, 0);
-    transition: background-color var(--transition-base);
+    background: linear-gradient(
+      to top,
+      rgba(14, 15, 17, 0.9) 0%,
+      rgba(14, 15, 17, 0.5) 35%,
+      rgba(14, 15, 17, 0.05) 60%,
+      transparent 100%
+    );
+    transition: background 0.4s ease;
   }
 
-  .project-card:hover .project-overlay {
-    background-color: rgba(14, 15, 17, 0.6);
+  .project-card:hover .card-gradient {
+    background: linear-gradient(
+      to top,
+      rgba(14, 15, 17, 0.95) 0%,
+      rgba(14, 15, 17, 0.6) 40%,
+      rgba(14, 15, 17, 0.15) 65%,
+      transparent 100%
+    );
   }
 
-  .overlay-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    align-items: center;
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 3rem;
+    z-index: 1;
   }
 
-  .view-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
+  .card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.375rem;
+  }
+
+  .card-roles {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: var(--line-height-normal);
+  }
+
+  .card-cta {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 2.5rem 3rem;
+    z-index: 1;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all var(--transition-base);
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .view-cta:hover {
-    background-color: var(--accent);
-  }
-
-  .play-icon {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-
-  .project-card:hover .view-cta {
+  .project-card:hover .card-cta {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Featured variant - larger */
-  .featured .project-image {
-    aspect-ratio: 21 / 9;
+  .cta-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
-  .featured .project-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-  }
-
-  /* Focus state for accessibility */
-  .view-cta:focus-visible {
+  /* Focus state */
+  .card-link:focus-visible {
     outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .project-image img,
-    .view-cta,
-    .project-overlay {
+    .card-image img,
+    .card-gradient,
+    .card-cta {
       transition: none;
     }
 
-    .project-card:hover .project-image img {
+    .project-card:hover .card-image img {
       transform: none;
     }
 
-    .view-cta {
+    .card-cta {
       opacity: 1;
       transform: none;
     }
@@ -212,17 +175,34 @@ const { title, roles, image, href, featured = false, trailerUrl, description, ke
 
   /* Responsive */
   @media (max-width: 768px) {
-    .featured .project-image {
+    .card-link {
       aspect-ratio: 16 / 9;
     }
 
-    .featured .project-title {
-      font-size: var(--font-size-2xl);
+    .card-content {
+      padding: 1.5rem;
     }
 
-    .view-cta {
+    .card-title {
+      font-size: 1.75rem;
+    }
+
+    .card-roles {
+      font-size: 0.8125rem;
+    }
+
+    .card-description {
+      display: none;
+    }
+
+    .card-cta {
       opacity: 1;
       transform: none;
+      padding: 1.5rem;
+    }
+
+    .cta-label {
+      font-size: 0.75rem;
     }
   }
 </style>

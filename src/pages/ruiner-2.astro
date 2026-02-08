@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SideNav from '../components/SideNav.astro';
 import Lightbox from '../components/Lightbox.astro';
+import NextProject from '../components/NextProject.astro';
 import siteConfig from '../content/site-config.json';
 
 const { projects } = siteConfig;
@@ -35,23 +36,23 @@ const sections = [
     <!-- Section 2: About the Project -->
     <section id="about-project" class="snap-section section-about-project">
       <div class="about-project-content">
-        <div class="about-project-text">
+        <div class="about-project-text" data-reveal>
           <h2>About the Project</h2>
           <p>
             RUINER 2 was a short, focused production of a vertical slice project, centered on defining the art direction and delivering three representative maps to establish the game's visual and gameplay foundation.
           </p>
         </div>
-        <div class="about-project-stats">
+        <div class="about-project-stats" data-reveal-stagger>
           <div class="stat-item">
-            <span class="stat-value">5 Months</span>
+            <span class="stat-value" data-count-to="5" data-count-suffix=" Months">5 Months</span>
             <span class="stat-label">In Production</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value">14+ Developers</span>
+            <span class="stat-value" data-count-to="14" data-count-suffix="+ Developers">14+ Developers</span>
             <span class="stat-label">Total Team Size</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value">4+ Artists</span>
+            <span class="stat-value" data-count-to="4" data-count-suffix="+ Artists">4+ Artists</span>
             <span class="stat-label">Art Team</span>
           </div>
           <div class="stat-item">
@@ -69,15 +70,21 @@ const sections = [
       </div>
       <div class="section-overlay"></div>
       <div class="split-content split-content-centered">
-        <div class="split-text">
+        <div class="split-text" data-reveal>
           <h2>My Responsibilities & Scope</h2>
-          <ul class="responsibility-list">
+          <ul class="responsibility-list" data-reveal-stagger>
             <li>Established the game's art direction and visual language in collaboration with the Art Director</li>
             <li>Co-created level art for all the maps alongside the core team</li>
           </ul>
         </div>
       </div>
     </section>
+
+    <NextProject
+      title="METAL EDEN"
+      href="/metal-eden"
+      image="/images/metal-eden/hero-main.webp"
+    />
 
       </main>
 </BaseLayout>
@@ -136,12 +143,24 @@ const sections = [
     position: absolute;
     inset: 0;
     z-index: -2;
+    overflow: hidden;
   }
 
   .section-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    animation: kenBurns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+
+  @keyframes heroFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   .section-overlay {
@@ -151,7 +170,7 @@ const sections = [
     background: linear-gradient(
       to bottom,
       rgba(14, 15, 17, 0.6) 0%,
-      rgba(14, 15, 17, 0.4) 50%,
+      rgba(14, 15, 17, 0.35) 50%,
       rgba(14, 15, 17, 0.8) 100%
     );
   }
@@ -174,12 +193,15 @@ const sections = [
   .section-hero h1 {
     margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.2s forwards;
   }
 
   .project-roles {
     font-size: var(--font-size-lg);
     color: var(--text-primary);
-    opacity: 0.9;
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.5s forwards;
   }
 
   .nda-notice {
@@ -187,6 +209,8 @@ const sections = [
     font-weight: var(--font-weight-bold);
     color: #AFC6D9;
     margin-top: var(--spacing-lg);
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.8s forwards;
   }
 
   /* Section About Project */
