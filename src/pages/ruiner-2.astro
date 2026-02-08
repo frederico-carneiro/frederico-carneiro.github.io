@@ -20,7 +20,11 @@ const sections = [
 
   <main class="snap-container snap-disabled">
     <!-- Section 1: Overview / Hero -->
-    <section id="overview" class="snap-section section-hero section-hero-no-image">
+    <section id="overview" class="snap-section section-hero">
+      <div class="section-bg">
+        <img src="/images/ruiner-2/hero-bg.webp" alt="RUINER 2 environment" loading="eager" />
+      </div>
+      <div class="section-overlay"></div>
       <div class="section-content">
         <h1>{project.title}</h1>
         <p class="project-roles">{project.roles.join(' · ')}</p>
@@ -59,7 +63,11 @@ const sections = [
     </section>
 
     <!-- Section 3: Responsibilities & Leadership -->
-    <section id="responsibilities" class="snap-section section-split">
+    <section id="responsibilities" class="snap-section section-split section-with-bg">
+      <div class="section-bg">
+        <img src="/images/ruiner-2/responsibilities-hero.webp" alt="RUINER 2 characters" loading="lazy" />
+      </div>
+      <div class="section-overlay"></div>
       <div class="split-content split-content-centered">
         <div class="split-text">
           <h2>My Responsibilities & Scope</h2>
